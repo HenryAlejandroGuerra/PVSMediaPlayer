@@ -118,38 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Crystal_Italic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crystal Italic1.ttf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VU_Meter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VU Meter.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WingDings3a" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WingDings3a.ttf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Media_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Media Normal.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Media_Playing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Media Playing.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bob" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bob.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Media_Recording" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recorder Recording.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dial_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dial Green.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dial_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dial Red.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Media_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Media Normal.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PVSLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PVSLogo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WingDings3a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WingDings3a.ttf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PVSLogoOutline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PVSLogoOutline.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dial_Normal_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dial Normal 2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bob" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bob.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dial_Red_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dial Red 2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +139,28 @@
   <data name="Media_Paused" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Media Paused.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Media_Recording" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Recorder Recording.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Crystal_Italic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crystal Italic1.ttf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Media_Playing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Media Playing.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PVSLogoOutline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PVSLogoOutline.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PVSLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PVSLogo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dial_Normal_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dial Normal 2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dial_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dial Red.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VU_Meter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VU Meter.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UDBLOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UDBLOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

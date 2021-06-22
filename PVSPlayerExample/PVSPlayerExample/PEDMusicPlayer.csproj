@@ -435,9 +435,6 @@
     <EmbeddedResource Include="Resources\Media Playing.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Bob.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Dial Green.png" />
   </ItemGroup>
   <ItemGroup>
@@ -457,6 +454,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Recorder Recording.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Bob.png" />
+    <None Include="Resources\UDBLOGO.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

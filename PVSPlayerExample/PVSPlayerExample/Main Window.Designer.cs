@@ -19,20 +19,7 @@ namespace PVSPlayerExample
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.leftFramePanel = new System.Windows.Forms.Panel();
-            this.speedPanel = new System.Windows.Forms.Panel();
-            this.speedSlider = new PVSPlayerExample.CustomSlider2();
-            this.sliderMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sliderMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sliderMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sliderMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sliderMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sliderMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.speedLabelPanel = new PVSPlayerExample.CustomPanel();
-            this.speedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.speedLight = new PVSPlayerExample.LightPanel();
-            this.speedLabelText = new System.Windows.Forms.Label();
             this.repeatPanel = new System.Windows.Forms.Panel();
             this.repeatLight = new PVSPlayerExample.LightPanel();
             this.repeatButton = new PVSPlayerExample.DropDownButton();
@@ -90,9 +77,6 @@ namespace PVSPlayerExample
             this.fullScreenOffMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullScreenModeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayModeLight = new PVSPlayerExample.LightPanel();
-            this.displayModeButton = new PVSPlayerExample.DropDownButton();
-            this.displayModeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.displayModeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayModeLabel = new PVSPlayerExample.HeadLabel();
             this.overlayMenuButton = new PVSPlayerExample.CustomButton();
             this.playPanel = new System.Windows.Forms.Panel();
@@ -117,6 +101,21 @@ namespace PVSPlayerExample
             this.addMediaURLMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.playDisplayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.titlePanel = new PVSPlayerExample.CustomPanel();
+            this.speedPanel = new System.Windows.Forms.Panel();
+            this.speedSlider = new PVSPlayerExample.CustomSlider2();
+            this.sliderMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sliderMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sliderMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sliderMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sliderMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sliderMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.speedLabelPanel = new PVSPlayerExample.CustomPanel();
+            this.speedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.speedLight = new PVSPlayerExample.LightPanel();
+            this.speedLabelText = new System.Windows.Forms.Label();
+            this.displayModeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.displayModeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.displayPanel = new System.Windows.Forms.Panel();
             this.displayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -300,12 +299,9 @@ namespace PVSPlayerExample
             this.video3DTopMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator43 = new System.Windows.Forms.ToolStripSeparator();
             this.video3DStereoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.titlePanel = new PVSPlayerExample.CustomPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.leftFramePanel.SuspendLayout();
-            this.speedPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.speedSlider)).BeginInit();
-            this.sliderMenu.SuspendLayout();
-            this.speedLabelPanel.SuspendLayout();
             this.repeatPanel.SuspendLayout();
             this.repeatMenu.SuspendLayout();
             this.displayModePanel.SuspendLayout();
@@ -313,6 +309,11 @@ namespace PVSPlayerExample
             this.fullScreenModeMenu.SuspendLayout();
             this.playPanel.SuspendLayout();
             this.playMenu.SuspendLayout();
+            this.titlePanel.SuspendLayout();
+            this.speedPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.speedSlider)).BeginInit();
+            this.sliderMenu.SuspendLayout();
+            this.speedLabelPanel.SuspendLayout();
             this.displayMenu.SuspendLayout();
             this.audioDeviceMenu.SuspendLayout();
             this.audioTracks.SuspendLayout();
@@ -338,7 +339,6 @@ namespace PVSPlayerExample
             | System.Windows.Forms.AnchorStyles.Left)));
             this.leftFramePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.leftFramePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.leftFramePanel.Controls.Add(this.speedPanel);
             this.leftFramePanel.Controls.Add(this.repeatPanel);
             this.leftFramePanel.Controls.Add(this.displayModePanel);
             this.leftFramePanel.Controls.Add(this.playPanel);
@@ -348,134 +348,13 @@ namespace PVSPlayerExample
             this.leftFramePanel.Size = new System.Drawing.Size(155, 505);
             this.leftFramePanel.TabIndex = 0;
             // 
-            // speedPanel
-            // 
-            this.speedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.speedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.speedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.speedPanel.Controls.Add(this.speedSlider);
-            this.speedPanel.Controls.Add(this.speedLabelPanel);
-            this.speedPanel.Location = new System.Drawing.Point(6, 328);
-            this.speedPanel.Name = "speedPanel";
-            this.speedPanel.Size = new System.Drawing.Size(141, 80);
-            this.speedPanel.TabIndex = 4;
-            // 
-            // speedSlider
-            // 
-            this.speedSlider.AutoSize = false;
-            this.speedSlider.ContextMenuStrip = this.sliderMenu;
-            this.speedSlider.Location = new System.Drawing.Point(2, 32);
-            this.speedSlider.Name = "speedSlider";
-            this.speedSlider.Size = new System.Drawing.Size(135, 45);
-            this.speedSlider.TabIndex = 1;
-            this.speedSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.toolTip1.SetToolTip(this.speedSlider, "Player.Sliders.Speed - sets the media playback speed of the player.");
-            this.speedSlider.Value = 5;
-            // 
-            // sliderMenu
-            // 
-            this.sliderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sliderMenuItem1,
-            this.sliderMenuItem2,
-            this.sliderMenuItem3,
-            this.sliderMenuItem4,
-            this.sliderMenuItem5});
-            this.sliderMenu.Name = "sliderMenu";
-            this.sliderMenu.ShowImageMargin = false;
-            this.sliderMenu.Size = new System.Drawing.Size(56, 114);
-            this.sliderMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.SliderMenu_Closed);
-            this.sliderMenu.Opening += new System.ComponentModel.CancelEventHandler(this.SliderMenu_Opening);
-            // 
-            // sliderMenuItem1
-            // 
-            this.sliderMenuItem1.Name = "sliderMenuItem1";
-            this.sliderMenuItem1.Size = new System.Drawing.Size(55, 22);
-            this.sliderMenuItem1.Text = "1";
-            this.sliderMenuItem1.Click += new System.EventHandler(this.SliderMenuItem1_Click);
-            // 
-            // sliderMenuItem2
-            // 
-            this.sliderMenuItem2.Name = "sliderMenuItem2";
-            this.sliderMenuItem2.Size = new System.Drawing.Size(55, 22);
-            this.sliderMenuItem2.Text = "2";
-            this.sliderMenuItem2.Click += new System.EventHandler(this.SliderMenuItem2_Click);
-            // 
-            // sliderMenuItem3
-            // 
-            this.sliderMenuItem3.Name = "sliderMenuItem3";
-            this.sliderMenuItem3.Size = new System.Drawing.Size(55, 22);
-            this.sliderMenuItem3.Text = "3";
-            this.sliderMenuItem3.Click += new System.EventHandler(this.SliderMenuItem3_Click);
-            // 
-            // sliderMenuItem4
-            // 
-            this.sliderMenuItem4.Name = "sliderMenuItem4";
-            this.sliderMenuItem4.Size = new System.Drawing.Size(55, 22);
-            this.sliderMenuItem4.Text = "4";
-            this.sliderMenuItem4.Click += new System.EventHandler(this.SliderMenuItem4_Click);
-            // 
-            // sliderMenuItem5
-            // 
-            this.sliderMenuItem5.Name = "sliderMenuItem5";
-            this.sliderMenuItem5.Size = new System.Drawing.Size(55, 22);
-            this.sliderMenuItem5.Text = "5";
-            this.sliderMenuItem5.Click += new System.EventHandler(this.SliderMenuItem5_Click);
-            // 
-            // speedLabelPanel
-            // 
-            this.speedLabelPanel.Controls.Add(this.speedTextBox);
-            this.speedLabelPanel.Controls.Add(this.speedLight);
-            this.speedLabelPanel.Controls.Add(this.speedLabelText);
-            this.speedLabelPanel.Location = new System.Drawing.Point(9, 9);
-            this.speedLabelPanel.Name = "speedLabelPanel";
-            this.speedLabelPanel.Size = new System.Drawing.Size(121, 22);
-            this.speedLabelPanel.TabIndex = 0;
-            // 
-            // speedTextBox
-            // 
-            this.speedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.speedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.speedTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.speedTextBox.Location = new System.Drawing.Point(92, 4);
-            this.speedTextBox.Mask = "0.00";
-            this.speedTextBox.Name = "speedTextBox";
-            this.speedTextBox.Size = new System.Drawing.Size(23, 13);
-            this.speedTextBox.TabIndex = 2;
-            this.speedTextBox.Text = "100";
-            this.toolTip1.SetToolTip(this.speedTextBox, "Player.Speed.Rate - sets the media playback speed of the player.");
-            this.speedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SpeedTextBox_KeyPress);
-            this.speedTextBox.Validated += new System.EventHandler(this.SpeedTextBox_Validated);
-            // 
-            // speedLight
-            // 
-            this.speedLight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.speedLight.Location = new System.Drawing.Point(7, 8);
-            this.speedLight.Name = "speedLight";
-            this.speedLight.Size = new System.Drawing.Size(2, 6);
-            this.speedLight.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.speedLight, "This indicator shows whether the playback speed is different from the normal play" +
-        "back speed.");
-            // 
-            // speedLabelText
-            // 
-            this.speedLabelText.AutoSize = true;
-            this.speedLabelText.BackColor = System.Drawing.Color.Transparent;
-            this.speedLabelText.ContextMenuStrip = this.sliderMenu;
-            this.speedLabelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.speedLabelText.Location = new System.Drawing.Point(41, 4);
-            this.speedLabelText.Name = "speedLabelText";
-            this.speedLabelText.Size = new System.Drawing.Size(38, 13);
-            this.speedLabelText.TabIndex = 1;
-            this.speedLabelText.Text = "Speed";
-            // 
             // repeatPanel
             // 
             this.repeatPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.repeatPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.repeatPanel.Controls.Add(this.repeatLight);
             this.repeatPanel.Controls.Add(this.repeatButton);
-            this.repeatPanel.Location = new System.Drawing.Point(6, 279);
+            this.repeatPanel.Location = new System.Drawing.Point(3, 287);
             this.repeatPanel.Name = "repeatPanel";
             this.repeatPanel.Size = new System.Drawing.Size(141, 43);
             this.repeatPanel.TabIndex = 3;
@@ -601,12 +480,11 @@ namespace PVSPlayerExample
             this.displayModePanel.Controls.Add(this.fullScreenLight);
             this.displayModePanel.Controls.Add(this.fullScreenModeButton);
             this.displayModePanel.Controls.Add(this.displayModeLight);
-            this.displayModePanel.Controls.Add(this.displayModeButton);
             this.displayModePanel.Controls.Add(this.displayModeLabel);
             this.displayModePanel.Controls.Add(this.overlayMenuButton);
             this.displayModePanel.Location = new System.Drawing.Point(6, 130);
             this.displayModePanel.Name = "displayModePanel";
-            this.displayModePanel.Size = new System.Drawing.Size(141, 144);
+            this.displayModePanel.Size = new System.Drawing.Size(141, 151);
             this.displayModePanel.TabIndex = 2;
             // 
             // displayLight
@@ -659,7 +537,7 @@ namespace PVSPlayerExample
             this.displayOverlayButton.DropDown = this.displayOverlayMenu;
             this.displayOverlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayOverlayButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.displayOverlayButton.Location = new System.Drawing.Point(9, 86);
+            this.displayOverlayButton.Location = new System.Drawing.Point(6, 87);
             this.displayOverlayButton.Name = "displayOverlayButton";
             this.displayOverlayButton.Size = new System.Drawing.Size(121, 21);
             this.displayOverlayButton.TabIndex = 5;
@@ -899,7 +777,7 @@ namespace PVSPlayerExample
             this.fullScreenModeButton.DropDown = this.fullScreenModeMenu;
             this.fullScreenModeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullScreenModeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.fullScreenModeButton.Location = new System.Drawing.Point(9, 60);
+            this.fullScreenModeButton.Location = new System.Drawing.Point(9, 50);
             this.fullScreenModeButton.Name = "fullScreenModeButton";
             this.fullScreenModeButton.Size = new System.Drawing.Size(121, 21);
             this.fullScreenModeButton.TabIndex = 3;
@@ -997,37 +875,6 @@ namespace PVSPlayerExample
             this.toolTip1.SetToolTip(this.displayModeLight, "This indicator shows whether the display mode is different from the standard disp" +
         "lay mode.");
             // 
-            // displayModeButton
-            // 
-            this.displayModeButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.displayModeButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.displayModeButton.DropDown = this.displayModeMenu;
-            this.displayModeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
-            this.displayModeButton.Location = new System.Drawing.Point(9, 34);
-            this.displayModeButton.Name = "displayModeButton";
-            this.displayModeButton.Size = new System.Drawing.Size(121, 21);
-            this.displayModeButton.TabIndex = 1;
-            this.displayModeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.displayModeButton, resources.GetString("displayModeButton.ToolTip"));
-            this.displayModeButton.UseVisualStyleBackColor = true;
-            // 
-            // displayModeMenu
-            // 
-            this.displayModeMenu.Name = "displayModeMenu";
-            this.displayModeMenu.OwnerItem = this.displayModeMenuItem;
-            this.displayModeMenu.ShowItemToolTips = false;
-            this.displayModeMenu.Size = new System.Drawing.Size(61, 4);
-            this.displayModeMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.DisplayModeMenu_Closed);
-            this.displayModeMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DisplayModeMenu_Opening);
-            this.displayModeMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.DisplayModeMenu_ItemClicked);
-            // 
-            // displayModeMenuItem
-            // 
-            this.displayModeMenuItem.DropDown = this.displayModeMenu;
-            this.displayModeMenuItem.Name = "displayModeMenuItem";
-            this.displayModeMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.displayModeMenuItem.Text = "Display Mode";
-            // 
             // displayModeLabel
             // 
             this.displayModeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1046,7 +893,7 @@ namespace PVSPlayerExample
             // 
             this.overlayMenuButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.overlayMenuButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.overlayMenuButton.Location = new System.Drawing.Point(9, 112);
+            this.overlayMenuButton.Location = new System.Drawing.Point(9, 120);
             this.overlayMenuButton.Name = "overlayMenuButton";
             this.overlayMenuButton.Size = new System.Drawing.Size(121, 21);
             this.overlayMenuButton.TabIndex = 7;
@@ -1284,6 +1131,154 @@ namespace PVSPlayerExample
             this.playDisplayMenuItem.Name = "playDisplayMenuItem";
             this.playDisplayMenuItem.Size = new System.Drawing.Size(155, 22);
             this.playDisplayMenuItem.Text = "Play";
+            // 
+            // titlePanel
+            // 
+            this.titlePanel.BackgroundImage = global::PVSPlayerExample.Properties.Resources.UDBLOGO;
+            this.titlePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.titlePanel.Controls.Add(this.label2);
+            this.titlePanel.Location = new System.Drawing.Point(6, 6);
+            this.titlePanel.Name = "titlePanel";
+            this.titlePanel.Size = new System.Drawing.Size(141, 51);
+            this.titlePanel.TabIndex = 0;
+            // 
+            // speedPanel
+            // 
+            this.speedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.speedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.speedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.speedPanel.Controls.Add(this.speedSlider);
+            this.speedPanel.Controls.Add(this.speedLabelPanel);
+            this.speedPanel.Location = new System.Drawing.Point(6, 218);
+            this.speedPanel.Name = "speedPanel";
+            this.speedPanel.Size = new System.Drawing.Size(141, 80);
+            this.speedPanel.TabIndex = 4;
+            // 
+            // speedSlider
+            // 
+            this.speedSlider.AutoSize = false;
+            this.speedSlider.ContextMenuStrip = this.sliderMenu;
+            this.speedSlider.Location = new System.Drawing.Point(2, 32);
+            this.speedSlider.Name = "speedSlider";
+            this.speedSlider.Size = new System.Drawing.Size(135, 45);
+            this.speedSlider.TabIndex = 1;
+            this.speedSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.toolTip1.SetToolTip(this.speedSlider, "Player.Sliders.Speed - sets the media playback speed of the player.");
+            this.speedSlider.Value = 5;
+            // 
+            // sliderMenu
+            // 
+            this.sliderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sliderMenuItem1,
+            this.sliderMenuItem2,
+            this.sliderMenuItem3,
+            this.sliderMenuItem4,
+            this.sliderMenuItem5});
+            this.sliderMenu.Name = "sliderMenu";
+            this.sliderMenu.ShowImageMargin = false;
+            this.sliderMenu.Size = new System.Drawing.Size(56, 114);
+            this.sliderMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.SliderMenu_Closed);
+            this.sliderMenu.Opening += new System.ComponentModel.CancelEventHandler(this.SliderMenu_Opening);
+            // 
+            // sliderMenuItem1
+            // 
+            this.sliderMenuItem1.Name = "sliderMenuItem1";
+            this.sliderMenuItem1.Size = new System.Drawing.Size(55, 22);
+            this.sliderMenuItem1.Text = "1";
+            this.sliderMenuItem1.Click += new System.EventHandler(this.SliderMenuItem1_Click);
+            // 
+            // sliderMenuItem2
+            // 
+            this.sliderMenuItem2.Name = "sliderMenuItem2";
+            this.sliderMenuItem2.Size = new System.Drawing.Size(55, 22);
+            this.sliderMenuItem2.Text = "2";
+            this.sliderMenuItem2.Click += new System.EventHandler(this.SliderMenuItem2_Click);
+            // 
+            // sliderMenuItem3
+            // 
+            this.sliderMenuItem3.Name = "sliderMenuItem3";
+            this.sliderMenuItem3.Size = new System.Drawing.Size(55, 22);
+            this.sliderMenuItem3.Text = "3";
+            this.sliderMenuItem3.Click += new System.EventHandler(this.SliderMenuItem3_Click);
+            // 
+            // sliderMenuItem4
+            // 
+            this.sliderMenuItem4.Name = "sliderMenuItem4";
+            this.sliderMenuItem4.Size = new System.Drawing.Size(55, 22);
+            this.sliderMenuItem4.Text = "4";
+            this.sliderMenuItem4.Click += new System.EventHandler(this.SliderMenuItem4_Click);
+            // 
+            // sliderMenuItem5
+            // 
+            this.sliderMenuItem5.Name = "sliderMenuItem5";
+            this.sliderMenuItem5.Size = new System.Drawing.Size(55, 22);
+            this.sliderMenuItem5.Text = "5";
+            this.sliderMenuItem5.Click += new System.EventHandler(this.SliderMenuItem5_Click);
+            // 
+            // speedLabelPanel
+            // 
+            this.speedLabelPanel.Controls.Add(this.speedTextBox);
+            this.speedLabelPanel.Controls.Add(this.speedLight);
+            this.speedLabelPanel.Controls.Add(this.speedLabelText);
+            this.speedLabelPanel.Location = new System.Drawing.Point(9, 9);
+            this.speedLabelPanel.Name = "speedLabelPanel";
+            this.speedLabelPanel.Size = new System.Drawing.Size(121, 22);
+            this.speedLabelPanel.TabIndex = 0;
+            // 
+            // speedTextBox
+            // 
+            this.speedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.speedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.speedTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
+            this.speedTextBox.Location = new System.Drawing.Point(92, 4);
+            this.speedTextBox.Mask = "0.00";
+            this.speedTextBox.Name = "speedTextBox";
+            this.speedTextBox.Size = new System.Drawing.Size(23, 13);
+            this.speedTextBox.TabIndex = 2;
+            this.speedTextBox.Text = "100";
+            this.toolTip1.SetToolTip(this.speedTextBox, "Player.Speed.Rate - sets the media playback speed of the player.");
+            this.speedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SpeedTextBox_KeyPress);
+            this.speedTextBox.Validated += new System.EventHandler(this.SpeedTextBox_Validated);
+            // 
+            // speedLight
+            // 
+            this.speedLight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.speedLight.Location = new System.Drawing.Point(7, 8);
+            this.speedLight.Name = "speedLight";
+            this.speedLight.Size = new System.Drawing.Size(2, 6);
+            this.speedLight.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.speedLight, "This indicator shows whether the playback speed is different from the normal play" +
+        "back speed.");
+            // 
+            // speedLabelText
+            // 
+            this.speedLabelText.AutoSize = true;
+            this.speedLabelText.BackColor = System.Drawing.Color.Transparent;
+            this.speedLabelText.ContextMenuStrip = this.sliderMenu;
+            this.speedLabelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
+            this.speedLabelText.Location = new System.Drawing.Point(41, 4);
+            this.speedLabelText.Name = "speedLabelText";
+            this.speedLabelText.Size = new System.Drawing.Size(38, 13);
+            this.speedLabelText.TabIndex = 1;
+            this.speedLabelText.Text = "Speed";
+            // 
+            // displayModeMenu
+            // 
+            this.displayModeMenu.Name = "displayModeMenu";
+            this.displayModeMenu.OwnerItem = this.displayModeMenuItem;
+            this.displayModeMenu.ShowItemToolTips = false;
+            this.displayModeMenu.Size = new System.Drawing.Size(61, 4);
+            this.displayModeMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.DisplayModeMenu_Closed);
+            this.displayModeMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DisplayModeMenu_Opening);
+            this.displayModeMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.DisplayModeMenu_ItemClicked);
+            // 
+            // displayModeMenuItem
+            // 
+            this.displayModeMenuItem.DropDown = this.displayModeMenu;
+            this.displayModeMenuItem.Name = "displayModeMenuItem";
+            this.displayModeMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.displayModeMenuItem.Text = "Display Mode";
             // 
             // toolTip1
             // 
@@ -2111,7 +2106,7 @@ namespace PVSPlayerExample
             this.balanceDialLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.balanceDialLabel.ContextMenuStrip = this.sliderMenu;
             this.balanceDialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.balanceDialLabel.Location = new System.Drawing.Point(70, 118);
+            this.balanceDialLabel.Location = new System.Drawing.Point(71, 153);
             this.balanceDialLabel.Name = "balanceDialLabel";
             this.balanceDialLabel.Size = new System.Drawing.Size(59, 21);
             this.balanceDialLabel.TabIndex = 9;
@@ -2125,7 +2120,7 @@ namespace PVSPlayerExample
             this.volumeDialLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.volumeDialLabel.ContextMenuStrip = this.sliderMenu;
             this.volumeDialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.volumeDialLabel.Location = new System.Drawing.Point(9, 118);
+            this.volumeDialLabel.Location = new System.Drawing.Point(9, 151);
             this.volumeDialLabel.Name = "volumeDialLabel";
             this.volumeDialLabel.Size = new System.Drawing.Size(59, 21);
             this.volumeDialLabel.TabIndex = 8;
@@ -2189,7 +2184,7 @@ namespace PVSPlayerExample
             this.audioDeviceButton.DropDown = this.audioDeviceMenu;
             this.audioDeviceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.audioDeviceButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.audioDeviceButton.Location = new System.Drawing.Point(9, 146);
+            this.audioDeviceButton.Location = new System.Drawing.Point(9, 177);
             this.audioDeviceButton.Name = "audioDeviceButton";
             this.audioDeviceButton.Size = new System.Drawing.Size(121, 21);
             this.audioDeviceButton.TabIndex = 10;
@@ -2203,7 +2198,7 @@ namespace PVSPlayerExample
             // 
             this.balanceDial.ContextMenuStrip = this.sliderMenu;
             this.balanceDial.Image = global::PVSPlayerExample.Properties.Resources.Dial_Normal_2;
-            this.balanceDial.Location = new System.Drawing.Point(73, 60);
+            this.balanceDial.Location = new System.Drawing.Point(75, 73);
             this.balanceDial.MaximumSize = new System.Drawing.Size(55, 55);
             this.balanceDial.MinimumSize = new System.Drawing.Size(55, 55);
             this.balanceDial.Name = "balanceDial";
@@ -2218,7 +2213,7 @@ namespace PVSPlayerExample
             // 
             this.volumeDial.ContextMenuStrip = this.sliderMenu;
             this.volumeDial.Image = global::PVSPlayerExample.Properties.Resources.Dial_Normal_2;
-            this.volumeDial.Location = new System.Drawing.Point(11, 60);
+            this.volumeDial.Location = new System.Drawing.Point(11, 73);
             this.volumeDial.MaximumSize = new System.Drawing.Size(55, 55);
             this.volumeDial.MinimumSize = new System.Drawing.Size(55, 55);
             this.volumeDial.Name = "volumeDial";
@@ -2695,8 +2690,10 @@ namespace PVSPlayerExample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rightFramePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.rightFramePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rightFramePanel.Controls.Add(this.label1);
             this.rightFramePanel.Controls.Add(this.shuttlePanel);
             this.rightFramePanel.Controls.Add(this.audioPanel);
+            this.rightFramePanel.Controls.Add(this.speedPanel);
             this.rightFramePanel.Location = new System.Drawing.Point(812, 8);
             this.rightFramePanel.Name = "rightFramePanel";
             this.rightFramePanel.Size = new System.Drawing.Size(155, 505);
@@ -2710,7 +2707,7 @@ namespace PVSPlayerExample
             this.shuttlePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.shuttlePanel.Controls.Add(this.shuttleSlider);
             this.shuttlePanel.Controls.Add(this.shuttleLabel);
-            this.shuttlePanel.Location = new System.Drawing.Point(6, 191);
+            this.shuttlePanel.Location = new System.Drawing.Point(6, 304);
             this.shuttlePanel.Name = "shuttlePanel";
             this.shuttlePanel.Size = new System.Drawing.Size(141, 80);
             this.shuttlePanel.TabIndex = 3;
@@ -2742,7 +2739,7 @@ namespace PVSPlayerExample
             this.audioPanel.Controls.Add(this.volumeLabelPanel);
             this.audioPanel.Location = new System.Drawing.Point(6, 6);
             this.audioPanel.Name = "audioPanel";
-            this.audioPanel.Size = new System.Drawing.Size(141, 179);
+            this.audioPanel.Size = new System.Drawing.Size(141, 206);
             this.audioPanel.TabIndex = 0;
             // 
             // balanceDialTitle
@@ -2874,13 +2871,23 @@ namespace PVSPlayerExample
             this.video3DStereoMenuItem.Text = "Normal View";
             this.video3DStereoMenuItem.Click += new System.EventHandler(this.Video3DStereoMenuItem_Click);
             // 
-            // titlePanel
+            // label1
             // 
-            this.titlePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.titlePanel.Location = new System.Drawing.Point(6, 6);
-            this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(141, 51);
-            this.titlePanel.TabIndex = 0;
+            this.label1.Image = global::PVSPlayerExample.Properties.Resources.UDBLOGO;
+            this.label1.Location = new System.Drawing.Point(11, 399);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 81);
+            this.label1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 43);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Reproductor de audio";
             // 
             // MainWindow
             // 
@@ -2901,11 +2908,6 @@ namespace PVSPlayerExample
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.Resize += new System.EventHandler(this.MainWindow_Resize);
             this.leftFramePanel.ResumeLayout(false);
-            this.speedPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.speedSlider)).EndInit();
-            this.sliderMenu.ResumeLayout(false);
-            this.speedLabelPanel.ResumeLayout(false);
-            this.speedLabelPanel.PerformLayout();
             this.repeatPanel.ResumeLayout(false);
             this.repeatMenu.ResumeLayout(false);
             this.displayModePanel.ResumeLayout(false);
@@ -2913,6 +2915,12 @@ namespace PVSPlayerExample
             this.fullScreenModeMenu.ResumeLayout(false);
             this.playPanel.ResumeLayout(false);
             this.playMenu.ResumeLayout(false);
+            this.titlePanel.ResumeLayout(false);
+            this.speedPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.speedSlider)).EndInit();
+            this.sliderMenu.ResumeLayout(false);
+            this.speedLabelPanel.ResumeLayout(false);
+            this.speedLabelPanel.PerformLayout();
             this.displayMenu.ResumeLayout(false);
             this.audioDeviceMenu.ResumeLayout(false);
             this.audioTracks.ResumeLayout(false);
@@ -2943,7 +2951,6 @@ namespace PVSPlayerExample
         private LightPanel playButtonLight;
         private DropDownButton playButton;
         private Panel displayModePanel;
-        private DropDownButton displayModeButton;
         private HeadLabel displayModeLabel;
         private LightPanel fullScreenLight;
         private DropDownButton fullScreenModeButton;
@@ -3218,6 +3225,8 @@ namespace PVSPlayerExample
 		private ToolStripMenuItem repeatChapterMenuItem;
 		private ToolStripSeparator toolStripSeparator17;
         private CustomPanel titlePanel;
+        private Label label2;
+        private Label label1;
     }
 }
 

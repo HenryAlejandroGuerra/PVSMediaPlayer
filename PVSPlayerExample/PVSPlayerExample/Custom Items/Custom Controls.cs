@@ -37,24 +37,24 @@ namespace PVSPlayerExample
 
         static internal Color NormalColor1A = Color.Gray;
         static internal Color NormalColor1B = Color.FromArgb(32, 32, 32);
-        static internal Color NormalColor2A = Color.Blue;
+        static internal Color NormalColor2A = Color.Black;
         static internal Color NormalColor2B = Color.FromArgb(48, 48, 48);
 
         static internal Color HotColor1A = Color.FromArgb(148, 148, 148);
         static internal Color HotColor1B = Color.FromArgb(32, 32, 32);
-        static internal Color HotColor2A = Color.Blue;
+        static internal Color HotColor2A = Color.Black;
         static internal Color HotColor2B = Color.FromArgb(60, 60, 60); //60
 
         static internal Color PressedColor1A = Color.FromArgb(180, 180, 180); // 164
         static internal Color PressedColor1B = Color.FromArgb(40, 40, 40); // 48
-        static internal Color PressedColor2A = Color.Blue; // 18
+        static internal Color PressedColor2A = Color.Black; // 18
         static internal Color PressedColor2B = Color.FromArgb(72, 72, 72); // 72
 
         // Sliders Thumb
         static internal Pen ThumbBorderPen = new Pen(Color.FromArgb(80, 80, 80));
 
         static internal Color NormalThumbColor1 = Color.FromArgb(132, 132, 132);
-        static internal Color NormalThumbColor2 = Color.Blue;
+        static internal Color NormalThumbColor2 = Color.Black;
 
         static internal Color HotThumbColor1 = Color.FromArgb(148, 148, 148);
         static internal Color HotThumbColor2 = Color.FromArgb(18, 18, 18);
@@ -99,7 +99,7 @@ namespace PVSPlayerExample
         {
             ForeColor = Color.Goldenrod;
             TextAlign = ContentAlignment.MiddleCenter;
-            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.Blue, LinearGradientMode.Vertical);
+            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.Black, LinearGradientMode.Vertical);
         }
 
         protected override Size DefaultSize
@@ -114,7 +114,7 @@ namespace PVSPlayerExample
             if (DisplayRectangle.Width < 1 || DisplayRectangle.Height < 1) return;
 
             if (_brush != null) _brush.Dispose();
-            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.LightSkyBlue, LinearGradientMode.Vertical);
+            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.Black, LinearGradientMode.Vertical);
         }
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
@@ -135,14 +135,14 @@ namespace PVSPlayerExample
 
         public CustomPanel()
         {
-            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.LightSkyBlue, LinearGradientMode.Vertical);
+            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.Black, LinearGradientMode.Vertical);
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             if (_brush != null) _brush.Dispose();
-            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.LightCoral, LinearGradientMode.Vertical);
+            _brush = new LinearGradientBrush(DisplayRectangle, Color.FromArgb(64, 64, 64), Color.Black, LinearGradientMode.Vertical);
         }
 
         protected override void OnPaintBackground(PaintEventArgs pevent)

@@ -30,13 +30,7 @@ namespace PVSPlayerExample
     /* Basada en la aplicación de  Peter Vegter
     June 2021, The Netherlands
     
-    Microsoft Windows 10 (64-bit)
-    Microsoft Visual Studio 2019 Community
-    Medion PC (Intel Core i5-7400 CPU @ 3.00 GHz, 8,0GB RAM, NVIDIA GeForce GT 1030)
-    AOC i2490PXQU/BT 24-inch monitor
-    Dell E173FP 17-inch monitor
-    Logitech QuickCam Pro 9000
-    Logitech HD Webcam C270
+  
 
     */
 
@@ -138,9 +132,9 @@ namespace PVSPlayerExample
             " All files|*.*";
 
         // Used with opening and saving playlists
-        internal const string       OPENPLAYLIST_DIALOG_TITLE   = "Open Playlist - " + APPLICATION_NAME;
-        internal const string       ADDPLAYLIST_DIALOG_TITLE    = "Add Playlist - " + APPLICATION_NAME;
-        internal const string       SAVEPLAYLIST_DIALOG_TITLE   = "Save Playlist - " + APPLICATION_NAME;
+        internal const string       OPENPLAYLIST_DIALOG_TITLE   = "Abrir Playlist - " + APPLICATION_NAME;
+        internal const string       ADDPLAYLIST_DIALOG_TITLE    = "Agregar Playlist - " + APPLICATION_NAME;
+        internal const string       SAVEPLAYLIST_DIALOG_TITLE   = "Guardar Playlist - " + APPLICATION_NAME;
         internal const string       PLAYLIST_DIALOG_FILTER      = "Playlists|*.m3u; *.m3u8; *.ppl|All files|*.*";
         internal static string      PlayListDirectory;
 
@@ -2969,28 +2963,28 @@ namespace PVSPlayerExample
         private void SetDisplayModeMenu(DisplayMode displayMode, bool setMode)
         {
             string displayModeName = displayMode.ToString();
-            if (displayModeButton.Text != displayModeName)
+            //if (displayModeButton.Text != displayModeName)
             {
-                if (setMode) myPlayer.Display.Mode = displayMode;
+               // if (setMode) myPlayer.Display.Mode = displayMode;
 
-                if (displayMode == DisplayMode.ZoomCenter)
+                //if (displayMode == DisplayMode.ZoomCenter)
                 {
                     displayModeLight.LightOn = false;
                 }
-                else
+                //else
                 {
-                    if (displayMode == DisplayMode.Manual) displayModeLight.ForeColor = Color.Red;
-                    else displayModeLight.ForeColor = Color.Lime; //  Color.Gold;
+                    //if (displayMode == DisplayMode.Manual) displayModeLight.ForeColor = Color.Red;
+                    //else displayModeLight.ForeColor = Color.Lime; //  Color.Gold;
                     displayModeLight.LightOn = true;
                 }
 
-                displayModeButton.Text = displayModeName;
+                //displayModeButton.Text = displayModeName;
                 int count = displayModeMenu.Items.Count - 3;
-                for (int i = 0; i < count; i++)
+               // for (int i = 0; i < count; i++)
                 {
                     //if (displayModeMenu.Items[i] != null && displayModeMenu.Items[i].GetType() == typeof(ToolStripMenuItem))
                     {
-                        ((ToolStripMenuItem)displayModeMenu.Items[i]).Checked = displayModeMenu.Items[i].Text == displayModeName;
+                       // ((ToolStripMenuItem)displayModeMenu.Items[i]).Checked = displayModeMenu.Items[i].Text == displayModeName;
                     }
                 }
             }
@@ -5916,5 +5910,10 @@ namespace PVSPlayerExample
         }
 
         #endregion
+
+        private void customPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
