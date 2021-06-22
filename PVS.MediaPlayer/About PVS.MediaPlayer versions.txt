@@ -1,0 +1,979 @@
+--------------------------------
+About PVS.MediaPlayer versions
+--------------------------------
+
+The PVS.MediaPlayer libraries are compiled using different .NET Framework versions so you can use the library on any computer that has Microsoft Windows 7 or higher, Media Foundation and .NET Core 3.1, .NET Framework version 4.x or .NET 5.0 or higher installed.
+All library versions have exactly the same functionality.
+
+If you get the libraries mixed up, you can read the .NET Framework version number by right-clicking on a library file in Windows Explorer and select Properties: Details. The last number in the version number shows the .NET version, e.g. 1.4.0.40 for .NET Framework version 4.0.
+
+--------------------------------
+Replacing a previous (or other .NET Framework version) library version
+--------------------------------
+
+In your project please remove the reference to PVS.MediaPlayer.dll and add a reference to the new PVS.MediaPlayer.dll.
+
+--------------------------------
+Additional Media Foundation Codecs
+--------------------------------
+
+For the latest additional codecs for Media Foundation, check out the "Codec Guide" website:
+https://codecguide.com/media_foundation_codecs.htm
+
+--------------------------------
+Questions and Remarks
+--------------------------------
+
+Any questions, remarks, suggestions, comments and/or votes are very much welcome and appreciated at the PVS.MediaPlayer articles at www.codeproject.com. You don't have to check the many comments to see if your question or remark has already been posted. Just ask at the comments section at the end of the articles.
+
+Player article: https://www.codeproject.com/Articles/109714/PVS-MediaPlayer-Audio-and-Video-Player-Library
+Sound Recorder article: https://www.codeproject.com/Articles/1116698/PVS-AVPlayer-MCI-Sound-Recorder
+
+More "Brief Instructions On How To Use PVS.MediaPlayer" with examples can be found in the "How To..." applications source code (all source download).
+
+--------------------------------
+Licenses
+--------------------------------
+
+The PVS.MediaPlayer library and the PVS.MediaPlayer sample applications and articles are licensed under The Code Project Open License (CPOL).
+
+PVS.MediaPlayer has built in (part of) the Media Foundation .NET library by nowinskie and snarfle (https://sourceforge.net/projects/mfnet).
+Licensed under either Lesser General Public License v2.1 or BSD.  See license.txt or BSDL.txt for details (http://mfnet.sourceforge.net).
+
+The license texts can be found on codeproject.com and sourceforge.net but are also included in the downloads of PVS.MediaPlayer (folder: PVS.MediaPlayer Licenses).
+
+--------------------------------
+PVS.MediaPlayer library versions:
+--------------------------------
+
+Version 1.4 - June 15, 2021
+
+
+- Removed: The Play method "display" parameter has been removed to reduce the number of Play method overloads to make it easier to navigate the Play method overloads in the Visual Studio editor. Instead, set the player's display window when the player is created or use the Player.Display.Window method, for example:
+    Player myPlayer = new Player(panel1); // or
+    myPlayer.Display.Window = panel1;
+
+- Removed: The Play method "repeat" parameter has been removed to reduce the number of Play method overloads to make it easier to navigate the Play method overloads in the Visual Studio editor. Instead, now use the Player.Repeat and/or Player.RepeatChapter properties, for example:
+    myPlayer.Repeat = true;
+ 
+- Renamed: All items related to media chapters (see below) are now placed in the new "Chapters" class and renamed, for example:
+Player.Media.GetChapters has changed to Player.Chapters.FromMedia - get chapters from the playing media or a specified media file,
+Player.Media.GetChaptersFile has changed to Player.Chapters.FromFile - get chapters from a chapters (.chap) file.
+
+- Added: Audio input device volume and mute (input level) settings, for example:
+    AudioInputDevice[] microphones = myPlayer.AudioInput.GetDevices();
+    myPlayer.Play(microphones[0]);
+    myPlayer.AudioInput.DeviceVolume = 0.5f; // values from 0.0 to 1.0
+    myPlayer.AudioInput.DeviceMute = !myPlayer.AudioInput.DeviceMute;
+
+- DeviceVolume: When referring to "DeviceVolume" and the like in the PVS.MediaPlayer library (instead of just "Volume"), the device's volume (and other) settings are not constantly controlled by the player. If the device is changed, the settings of the new device are not automatically set to the settings of the previous device and if the settings are changed outside of the player, it is not automatically detected by the player.
+
+- Changed: The "Step" method (for example: myPlayer.Position.Step(-1)) of the player has been changed internally to give a better result. The player's shuttle slider also uses this new method.
+However, there is a downside to this method. If the player is paused, after using the step method (once or several times) the video image will not be updated properly until playback is resumed (briefly) with for example: myPlayer.Resume(); (myPlayer.Pause();) or with the new Player.Position.StepEnd() method.
+When using the shuttle slider, the Shift key can be used to further slow down the display of frames. and the Control key to skip step-end playback recovery.
+- Thanks to a comment from Dusan, "Member 10271796", in the comments section of the PVS.MediaPlayer article on CodeProject.
+
+- Changed: The default mode of the position slider controlled by the player has changed from PositionSliderMode.Track to PositionSliderMode.Progress. The position slider progress mode is now the same as the default taskbar progress indicator mode and shows the progress of the playing media from the (customizable) start time to the (customizable) stop time. This setting can be changed with for example:
+myPlayer.Sliders.Position.Mode = PositionSliderMode.Track;
+The Track mode of the slider shows the playback position of the playing media from the natural beginning of the media to its natural end.
+
+- Changed: The corners of the "Frame" and "Rounded" display shapes have a smaller curve, for example:
+    myPlayer.Display.Shape = DisplayShape.Rounded;
+
+- Changed: The metadata item "Artist" contained the data of the media information "Artist" or "AlbumArtist" depending on the (missing) content of either. Now there is an entry for both "Artist" and "AlbumArtist" (Player.Media.GetMetadata()).
+If you think more items should be added, leave a message at the bottom of the article on CodeProject (see top of this file). A list of possible items can be found at: https://docs.microsoft.com/en-us/windows/win32/medfound/metadata-properties-for-media-files
+- Thanks to a comment from "Member 12313149" in the comments section of the PVS.MediaPlayer article on CodeProject.
+
+- Fixed: Some webcam playback methods did not work due to a typo. Now solved.
+
+
+MEDIA CHAPTER FILES
+****************************************
+The PVS.MediaPlayer library now provides improved parsing of media chapter (.chap) files and the option to set the directory and/or file name to retrieve chapter files with the Player.Chapters.FromFile method.
+
+As with subtitle files, you can now localize chapter files by placing the files in different folders for different languages or have all you subtitle and/or chapter files in one directory on your storage device. See Player.Chapters.Directory and Player.Chapters.FileName.
+
+If you want to include chapter end times in chapter files (see for example PLAYING MEDIA CHAPTERS below) you can use the (new) extended notation in the chapters file (.chap) of PVS.MediaPlayer:
+single notation, for example: 00:00:30.000 Chapter 1 (format: [start time] [chapter title]).
+extended notation, for example: 00:00:30.000 - 00:01:30.000 Chapter 1 (format: [start time] - [end time] [chapter title]).
+You can use both notations side by side in a chapters file. 
+
+When reading chapter files, the player now fills in missing end time information: If an end time of a chapter is missing, the player uses the start time of the next chapter. The end time of the last chapter, if not present, keeps the default TimeSpan.Zero (= end of media) value. If necessary, you can enter the end time of the media yourself. 
+****************************************
+
+PLAYING MEDIA CHAPTERS
+****************************************
+By using the chapters file playback options of the PVS.MediaPlayer library, you can play, skip and repeat fragments of a video or music file in any order.
+The chapters in a chapters file are completely independent of each other and can contain any part in any order of a media file.
+
+Note: Playing chapters is not the same as using chapters as described above. When playing chapters, the chapters are actually played from the specified beginning to the specified end of the chapters, while in the latter case, only a list of chapters is available from which a playback position can be selected.
+You shouldn't use both options at the same time. See the example PVSPlayerExample how to use the options described here. The chapter menus are located in the context menu of the position slider at the bottom of the screen. 
+
+The PVS.MediaPlayer library offers two ways to play media with chapters:
+
+1. Play chapter files as if they were regular media files, for example:
+    myPlayer.Play(@"C:\Videos\Chapters\MyMovie.chap");
+The media file belonging to the chapters file (with the same name but different extension) is searched in the same directory as the chapters file or in its parent(!) directory.
+
+2a. Play a media file with a specified array of chapters, for example:
+    myPlayer.Play(@"C:\Videos\MyMovie.chap", chapters);
+The chapters can be created from code or read from a chapters file. Here's an example of how to create chapters from code and then play them:
+
+// create chapters in code, for example:
+    MediaChapter[] chapters = new MediaChapter[3];
+    chapters[0] = new MediaChapter("Chapter 1", TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(130));
+    chapters[1] = new MediaChapter("Chapter 2", TimeSpan.FromMinutes(3), TimeSpan.FromMinutes(3.5));
+    chapters[2] = new MediaChapter("Chapter 3", TimeSpan.FromMinutes(4.3), TimeSpan.FromMinutes(5));
+
+// and play the chapters, for example:
+    myPlayer.Play(myMovie, chapters);
+
+Notes:
+With both methods you can also indicate from which chapter (index) the playback should start.
+An array of media chapters (MediaChapter[]) can be saved to a chapter file with, for example:
+    myPlayer.Chapters.ToFile(@"C:\MyChaptersFolder\MyChaptersFile.chap", chapters").
+An array of media chapters can be read from a chapters file with, for example:
+    MediaChapter[] chapters = myPlayer.Chapters.FromFile(@"C:\MyChaptersFolder\MyChaptersFile.chap").
+The media file belonging to a chapters file can be located with, for example:
+    string fileName = myPlayer.Chapters.GetMediaFile(@"C:\Videos\Chapters\MyMovie.chap");
+
+Playback of the chapters will fail if an end time is before a start time or if a start or end time is empty, null or outside the start and end time of the media. If no or an empty chapter title is given, the character '#' is used as the title. You can replace this in your application with an empty string or whatever you want.
+
+If you want to know when a new chapter starts, and which chapter it is, you can subscribe to the MediaChapterStarted event, for example myPlayer.Events.MediaChapterStarted += MyPlayer_MediaChapterStarted.
+This event is also raised (with index = -1) when chapter playback has ended before the media has ended (see next line).
+
+If you change the start or stop time of the playing media (with Player.Media.StartTime or .StopTime), the chapters playback will end.
+
+See also: Player.Has.Chapters, Player.Chapters.Index, Player.RepeatChapter, Player.StopChapters and others, for example to play a next chapter:
+    if (myPlayer.Has.Chapters) myPlayer.Chapters.Index++; (or myPlayer.Chapters.Next()).
+If the chapters file is part of a playlist (see below) and you want to continue after the last chapter with the next media file in the playlist, you could do the following:
+    if (myPlayer.Has.Chapters)
+    {
+        myPlayer.Chapters.Index++; // if past last chapter: LastError = Out of Range:
+        if (myPlayer.LastError) PlayNextMedia();
+    }
+****************************************
+
+WEBCAM VIDEO RECORDER
+****************************************
+The PVS.MediaPlayer library now also supports easy capture of webcam video.
+
+The webcam recorder now available uses Media Foundation's Capture Engine for its efficient handling of recordings. Unfortunately, this Capture Engine is only available in Windows 8 or later. In the future, the PVS library may use different recording methods.
+
+The intention was to include a full webcam, sound and video (display) recorder in the player, but due to various circumstances only a webcam recorder (without sound - couldn't get the capture engine to record audio) has now been integrated in the player. In order not to postpone this update any longer, the other recorders (if any) will be added in a later update.
+
+To record the video from a webcam, play the webcam with the player and then use one of the webcam recorder methods, for example:
+
+    WebcamDevice[] webcams = myPlayer.Webcam.GetDevices();
+    myPlayer.Play(webcams[0], WebcamQuality.High);
+    //... wait for the webcam to start
+    myPlayer.Webcam.RecorderStart();
+
+    // to end the recording use:
+    myPlayer.Webcam.RecorderStop();
+
+If you do not choose a file name yourself, the recordings will be placed in the folder "PVS Recordings" in the system documents folder.
+The recorder only records the video image from the webcam. Display options in the player, such as display overlays, for example, are not included.
+The default video format of the recording is H.264/MP4. Sound is not recorded.
+
+Events: MediaWebcamRecorderStarted, MediaWebcamRecorderStopped. 
+
+****************************************
+
+- and other fixes and improvements.
+
+
+Thanks, Peter
+
+--------------------------------
+--------------------------------
+
+Version 1.3 - April 15, 2021
+
+
+- WPF Support: Native support for WPF has been removed from the library for several reasons, such as the incompatibility of WPF and WinForms. Nor has it become clear whether the WPF options are valued. However, if there is enough interest, a special WPF version of the PVS.MediaPlayer library may be released in the future.
+
+- Removing support for WPF also restores the scaling of applications that use the PVS.MediaPlayer library.
+- Thanks to a comment from "pssp.sven" in the comments section of the PVS.MediaPlayer article on CodeProject.
+
+DISPLAY OVERLAYS
+****************************************
+1) Overlay Base Class.
+The PVS.MediaPlayer library now also includes a base class for use with display overlays. This basic display overlay contains code that prevents unwanted activation (focusing) of overlays even better and the possibility to make the overlays completely transparent for mouse events. This basic overlay can be used by replacing the 'default' inherited control Form with OverlayForm (OverlayWindow), for example:
+    public partial class Form2 : Form
+        is replaced by
+    public partial class Form2 : OverlayForm
+
+If you do not use the option to also use a display overlay for data entry (which is actually no longer recommended) then you can also make the overlay 'invisible' for mouse clicks with the OverlayForm property ClickThrough, for example in the constructor of the overlay (derived from OverlayForm) ClickThrough = true;
+
+2) Overlay Blend Option.
+If you are using semi-transparent display overlays (using the opacity property of an overlay) and you also want the transparency to look the same on display clones and screenshots, you can use the Blend option of the overlay with for example myPlayer.Overlay.Blend = OverlayBlend.Transparent.
+This option is not set by default because some controls are not visible on the display clones or copies when using semi-transparency and the OverlayBlend.Transparent option. 
+
+3) Overlay Text Display.
+A problem with displaying text is the transparent background of a display overlay. Using anti-aliasing often causes a differently colored border to appear around the letters of a text. This can be somewhat solved by making the background color of the display overlay nearly the same as the color of the text, but this is not always a good solution.
+
+Here are two solutions that can solve text problems on display overlays: 
+
+i. Display text on display overlays with the (Graphics) DrawString method in combination with TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit, for example:
+protected override void OnPaint(PaintEventArgs e)
+{
+    e.Graphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
+    e.Graphics.DrawString("My Text", new Font(Font.FontFamily, 48), Brushes.Red, 10, 200);
+}
+
+ii. The method mentioned above (i. with a small adjustment) can also be applied to controls containing text such as Labels, for example:
+public class OverlayLabel : Label
+{
+    public OverlayLabel()
+    {
+        UseCompatibleTextRendering = true;
+    }
+
+    protected override void OnPaint(PaintEventArgs e)
+    {
+        e.Graphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
+        base.OnPaint(e);
+    }
+}
+This label is also available in the PVS.MediaPlayer library: just replace your Labels on display overlays with an OverlayLabel.
+
+4) Hatch Brush Transparency.
+In addition to the opacity and transparent options of a display overlay, you could also experiment with a hatchbrush with percent hatchstyles (partial) backgrounds on the overlay or controls on the overlay. One of the colors of the brush (the foreground or background color) must then be the same as the transparency color (which is the background color of the Form by default), for example:
+protected override void OnPaintBackground(PaintEventArgs e)
+{
+    base.OnPaintBackground(e);
+    HatchBrush b = new HatchBrush(HatchStyle.Percent50, Color.Red, BackColor);
+    e.Graphics.FillRectangle(b, ClientRectangle);
+    b.Dispose();
+}
+
+5) Video Overlay.
+In addition to the display overlays of a player, you can also add an image as an overlay to a video displayed by a player. Although this option has far fewer options than a display overlay, it can still be a valuable addition. An image can be alpha blended with a video with the Player.Video.SetOverlay method, for example to add a logo in the lower right corner of all videos to be played, use: 
+    myPlayer.Video.SetOverlay(Image.FromFile(@"C:\Pictures\MyLogo.png"), ImagePlacement.BottomRightSmall, RectangleF.Empty, Color.Empty, 0.3f, true);
+
+A player automatically adjusts the overlay settings when the video is resized or when another video is played. The image aspect ratio changes with a change (stretch) in the aspect ratio of the video image. 
+
+You can customize the ImagePlacement presets by using the Player.Video.SetOverlayPresets method. To update the image overlay, use the Player.Video.UpdateOverlay method, and to remove the bitmap overlay, use the Player.Video.RemoveOverlay method.
+
+An example of the Video Image Overlay option has been added to the PVSPlayerExample sample application (display and webcam contextmenu item " Video Overlay"). 
+
+For more information see the comments in the display overlay file in the example program "How To ...".
+- Thanks to Christian, "Member 11065094", for his comments in the comments section of the PVS.MediaPlayer article at CodeProject.
+**************************************** 
+
+MEDIA CHAPTERS
+****************************************
+A PVS.MediaPlayer player can read embedded chapter information from various media files. You can also add this information to certain media files yourself with freely available software.
+The PVS.MediaPlayer now also offers the possibility to read chapter information from a file with chapter information that can be created very easily and quickly by yourself. In addition, this chapter information can be used with all media files, while the embedded chapter information is only possible with some types of media files.
+
+Storing chapter information in a separate file has many advantages, such as creating and changing the information easily. The only drawback is that an extra file is added to the original media file.
+
+A chapters file is a plain text file with one line of information per chapter.
+The format of a line in a chapter file is simple: the start time of the chapter followed by the name of the chapter.
+For example, a chapters file might look like this:
+
+# Remarks can be placed on a line starting with the '#' character
+# The chapters file may also contain empty lines
+# The chapter start time has a fixed format of 12 characters (hh:mm:ss.fff)
+# The chapter name can be any text
+00:00:30.000 Chapter 1
+00:04:30.123 Chapter 2
+01:25:45.080 Chapter 3
+
+The beginning of the first chapter does not have to be the beginning of the media, nor does the order of the chapters have to be arranged chronologically. The time indication must have the exact format shown (the period can be replaced with a comma if necessary).
+The file must have the same name as the media file but with the extension ".chap". The file should be placed in the same folder (or in one of the folders in that folder) as the media file.
+
+A chapters file (if any) for the media being played can be read with for example:
+    MediaChapters[] chapters = myPlayer.Media.GetChaptersFile();
+If no chapter file is found or if the file does not contain valid chapter information, the result is "null". 
+
+You can test this new chapters option in the example program PVSPlayerExample. The chapter information can be found in the context menu (right click) of the position slider at the bottom of the player window (Chapters III).  
+****************************************
+
+- Shuttle slider: The shuttle slider was a bit misadjusted in the previous version, it should be better now.
+
+- and other fixes and improvements.
+
+Thanks, Peter
+
+--------------------------------
+--------------------------------
+
+Version 1.2 - March 14, 2021
+
+
+- .NET versions: The PVS.MediaPlayer source code can be compiled into a .NET Core 3.1, .NET Framework 4.x, .NET 5.0 or higher library. The .NET Framework 4.x and .NET 5.0 versions are available pre-compiled in the downloads at CodeProject.
+If the new WPF options (see below) are removed, the library can also be compiled for Microsoft Mono, but may then only be used on Windows computers (not tested but probably not usable on other systems due to the use of Media Foundation (?)) and may therefore be of little use. 
+
+WPF SUPPORT
+****************************************
+To use the PVS.MediaPlayer library in a WPF application, add a reference to Systems.Windows.Forms in the WPF project (Visual Studio can even do this for you automatically). With the WPF options provided by the PVS.MediaPlayer library, you don't need to use a WindowsFormsHost control.
+
+A PVS.MediaPlayer player offers 2 ways to use a Windows Forms Form in a WPF application:
+1. by simply adding a WinForms Form to the WPF application that is used as in a WinForms application,
+2. by 'attaching' a WinForms Form to a WPF control, making it (almost) look like a 'real' WPF control is being used.
+ 
+The first method is self-explanatory and for the second method, the PVS.MediaPlayer library now offers a WinForms Form with "special" settings: the WPFDisplay window.
+
+A WPF sample application (C# language only, with an embedded short video) has been added to the downloads ("All Source" and "Examples"):
+see the code and comments in this "WPFPlayerSample" project on how to easily add a PVS.MediaPlayer player to a WPF application.
+
+Creating a player in a WPF application with a WPFDisplay window attached to a WPF control (for example, a ContentControl) could look like this (the WPFDisplay window can only be attached to the WPF control (in this example named "wpfControl") if the WPF control has been initialized and loaded):
+
+using PVS.MediaPlayer;
+
+public partial class MainWindow : Window
+{
+    Player myPlayer;
+    WPFDisplay myDisplay;
+
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+        myDisplay = new WPFDisplay(wpfControl, Colors.Black);
+        myPlayer = new Player(myDisplay);
+    }
+ }
+
+Note: To be able to use dragging the entire window on which the player's display is placed (with Player.Display.DragEnabled), a ContentControl (or any other control) must also have a content. For example, in the Visual Studio Designer you can enter one or more letters in the "Content" box of the control.
+
+If the WPFDisplay were to partially extend outside the WPF window, the size of the WPFDisplay will be reduced so that it stays within the boundaries of the WPF window. If you don't use display overlays or display shapes you can also choose to clip ("cut off" the part that is outside the WPF window) the WPFDisplay instead of reducing the size with for example: myDisplay.Clipping = true (where myDisplay is a WPFDisplay).
+In general, it is best to always just keep the WPF control (to which the WPFDisplay is attached) within the boundaries of the window on which it is placed.
+
+To remove (dispose/clean up) the WPFDisplay just use its Dispose or Close method, for example myDisplay.Close(). The player will then ensure that the control is properly removed (of course you must first disconnect the display window from the player before removing it).
+The background color of the WPFDisplay can be changed at any time with the BackColor property that now accepts a WPF color value.
+Only WinForms controls (or player display overlays) can be displayed on top of a WPDisplay, not WPF controls.
+Should there be a case where the WPFDisplay is not displayed in the correct place and/or size, the update method of the WPFDisply can be used, for example myDisplay.Update(). 
+
+There are also some important notes in this sample application on what can be done with the WPF MainWindow when using one of the player's full screen modes. Unlike the WinForms display, the window on which the player's WPFDisplay is located is not enlarged along with the display window. In many cases, however, this may be desirable.  
+
+Very few options of the PVS.MediaPlayer library cannot (yet) be used in a WPF application, such as CursorHide. But the still missing options can usually be easily implemented by yourself in the WPF application. 
+
+PVS.MediaPlayer handles taskbar progress indicators for WPF windows in the same way as with WinForms Forms. You can add a taskbar progress indicator to a WPF window with, for example, myPlayer.TaskbarProgress.Add(myWPFWindow) (or ...(this)).
+
+PVS.MediaPlayer handles WPF Sliders (position, audio volume and audio balance sliders only) in the same way as WinForms Trackbars (including the new position slider option "ClickAndDrag" (see below)).
+You can have a player control a WPF position slider with, for example, myPlayer.Sliders.Position.TrackBarWPF = myWPFSlider.
+
+Some methods have a "WPF" postfix (and not a method overload) in order not to break existing WinForms applications or to have to include references to WPF libraries in Winforms applications. Some properties have a "WPF" postfix because other values than the Winforms values have to be used in WPF applications. Using a postfix, the Winforms and WPF (if any) options are displayed one below the other in the Visual Studio IntelliSense menus.
+****************************************
+
+- Display Hold (1): display clones (with overlays shown) were sometimes not cleared properly when using the Player.Display.Hold (and HoldClear) options. That, along with some related issues (e.g. in combination with overlay hold), has now been resolved: display clones are cleared or not cleared (hold) as intended.
+
+- Display Hold (2): The player now also clears the screen (similar to when an error occurs or when using the stop method) when playing media without video when the video from the previous media is on hold (by using the Display Hold option).
+
+- 3D Video: a player can (with a single instruction) display one of the side-by-side/over-under (sbs/ou) images of a 3D video, so that you can view the 3D video as a 'normal' video. If necessary, the player also adjusts the aspect ratio of the video. For example:
+    myPlayer.Video.View3D = Video3DView.LeftImage; // selects the left images in (all) media files (without checking if there are any).
+    myPlayer.Video.View3D = Video3DView.NormalImage; // restores 'normal' video images display (default setting).
+The selected 3D display will remain in effect until normal display is reselected but the player may adjust the aspect ratio with each new media.
+(A player can detect whether a video is a 3D video and whether the images are side by side or on top of each other, but this information is so often missing from media files that the player only supports manual selection.)
+Related events: MediaVideoView3DChanged / MediaVideoCropChanged / MediaVideoAspectRatioChanged / MediaVideoBoundsChanged.
+PVSPlayerExample: available in Display Mode menu.
+
+- Video Crop: the View3D option mentioned above is a special case of the video 'Crop' option of the player. The 'Crop' option allows you to indicate the source rectangle (= the part) of the video image being displayed. This rectangle is a 'normalized' rectangle, the values range from 0.0 to 1.0 (inclusive) to indicate the relative positions on the video image: the entire video image is represented by a rectangle with the values {0.0, 0.0, 1.0, 1.0}.
+A normalized rectangle can be used to specify a region within a video rectangle without knowing the resolution or even the aspect ratio of the video. For example, the upper-left quadrant is defined as {0.0, 0.0, 0.5, 0.5} (from: https://docs.microsoft.com/en-us/windows/win32/api/evr/ns-evr-mfvideonormalizedrect). For example:
+    myPlayer.Video.Crop = new RectangleF(0.2f, 0.2f, 0.8f, 0.8f);
+To restore the normal video images use, for example:
+    myPlayer.video.Crop = RectangleF.Empty;
+The 'Crop' option will remain in effect until normal display is reselected.
+Related events: MediaVideoCropChanged / MediaVideoView3DChanged / MediaVideoBoundsChanged.
+
+- Play Images: Improved image to mp4 conversion. More (all?) images (in a format supported by Windows) are now successfully converted to mp4 files which can be played by PVS.MediaPlayer. In previous versions, problems could arise with 8-bit images or images with certain dimensions.
+Some new image file types (such as HEIC for example) may be available in Windows but not necessarily also in the .NET Framework. 
+
+- Drag and Drop (1): If you want to show drag-and-drop preview ('ghost') images when an item is dragged over one or more controls in your application (even if you don't implement actual drag-and-drop functionality - see also Drag and Drop (2) below), you can use the PVS.MediaPlayer DragAndDrop methods. Add (all of) the following 4 methods to a control (e.g. a form) to enable the display of drag-and-drop preview images (also set the AllowDrop property of the control to true), for example:
+    protected override void OnDragEnter(DragEventArgs e) { myPlayer.DragAndDrop.DragEnter(e); }
+    protected override void OnDragOver(DragEventArgs e) { myPlayer.DragAndDrop.DragOver(e); }
+    protected override void OnDragLeave(EventArgs e) { myPlayer.DragAndDrop.DragLeave(); }
+    protected override void OnDragDrop(DragEventArgs e) { myPlayer.DragAndDrop.DragDrop(e); }
+If you want to implement true drag and drop functionality, add the logic to these methods. See the PVSPlayerExample application for an example (file: DragAndDrop.cs).
+PVSPlayerExample: applied (with real drag and drop) in the main window (and some display overlays).
+
+- Drag and Drop (2): If you don't intend to implement drag-and-drop functionality for certain interface items at all but want to show drag-and-drop preview ('ghost') images over these items, you can use the Player.DragAndDrop.Add method of the player. This method ensures that the specified form (and all items on it) show drag-and-drop preview images, for example:
+    myPlayer.DragAndDrop.Add(this);
+This option is removed together with the control and does not require any special clean-up.
+PVSPlayerExample: applied in all windows except the main window (and some display overlays) which uses the method described above.
+
+- Player.Audio.MasterVolume has been renamed to Player.Audio.DeviceVolume: this property controls the audio volume of the audio device currently being used by the player (this is different from the audio volume setting of the player itself, which is controlled by the Player.Audio.Volume property).
+- Audio Device Mute: Added an audio device mute (Device Volume Mute) property. The audio device settings for volume and mute affect all applications that use the device. It is recommended to use the player's audio settings such as Player.Audio.Volume instead. For example:
+    myPlayer.Audio.DeviceMute = true; // see also: Player.Audio.DeviceVolume.
+- There are no events in the player related to the change of the volume or muting of an audio device. Instead, you can easily "poll" changes in the volume level of an audio device (for example by using a timer as is done in PVSPlayerExample).
+PVSPlayerExample: available in the Audio Devices menu.
+
+- Audio Fade In/Out: The audio volume and balance levels can be gradually changed automatically with Player.Audio.VolumeTo, .BalanceTo and .DeviceVolumeTo, for example:
+    myPlayer.Audio.VolumeTo(0); // Audio fade out
+    myPlayer.Audio.VolumeTo(1); // Audio fade in to maximum volume
+The audio values are changed in steps of 0.01 units at intervals of 20 milliseconds (or at a speed of your choice).
+PVSPlayerExample: available in audio volume/balance dials contextmenus and (with video fading) on the "Status Info" display overlay.
+
+- Audio Mono Mode: If you are watching a movie with headphones on and one of the headphone speakers does not produce sound because there is something wrong with the sound of the movie, you can set the player audio to mono for better listening pleasure, for example: myPlayer.Audio.Mono = true;
+
+- Custom sliders: fixed a bug where a PositionChanged event came before the MediaStarted event. As a result, the maximum slider value could not be set in the MediaStarted event (did not affect a trackbar controlled by the player).
+
+- Position slider: the position slider controlled by the player has a new feature: Click-And-Drag. When the mouse is clicked anywhere on the slider, the thumb of the slider is also captured, so you can drag the thumb even if you clicked next to the thumb. This option is enabled by default but can be disabled with the Player.Sliders.Position.ClickAndDrag property. Only the position slider has this function, other sliders, for example for audio volume, function better in the usual way.
+
+- Shuttle slider fix: the shuttle slider (trackbar) controlled by the player no longer responds to the arrow keys, it can only be used with the mouse.
+
+- Repeat fix: playing a device (e.g. a webcam or an input device) turned the player's repeat setting off. Now the repeat setting remains as it was (although repeat has no meaning when playing a device).
+
+- Maximum Zoom Size: The default maximum zoom size has changed from 6400x6400 to 12000x12000. You can change the maximum zoom size allowed with for example: myPlayer.Video.MaxZoomSize = new Size(25000, 25000). The maximum zoom size is limited because too large a size can sometimes cause playback problems.
+
+- Subtitle missing: With some subtitle files (.srt), the player skipped the first subtitle. This was caused by files encoded with a Byte Order Mark (BOM). The advice was to save such files again (for example with Notepad) in a different format (for example ANSI or UTF without BOM) or by adding an empty line at the beginning of the file. However, the problem is now resolved in the player.
+- Thanks to Richard, "licric", for his comments and sample video in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- Temporary files: Fixed an error when creating temporary files with no path information (used with playing embedded byte arrays, among others) when there was already a temporary file with the same name.
+
+NETWORK
+****************************************
+- Network Statistics: If you want more information about your streaming (as well as local) media, you can use the network resource statistical information provided by the Player.Network.GetStatistics method. There are a lot of items you can get statistics from, for example:
+    long progress = myPlayer.Network.GetStatistics(NetworkStatistics.DownloadProgress);
+    MessageBox.Show(progress.ToString());
+    // or for example:
+    long protocol = myPlayer.Network.GetStatistics(NetworkStatistics.Protocol);
+    MessageBox.Show(((NetworkProtocol)protocol).ToString());
+If you want a regular update of the statistics, you can use a timer or combine the retrieval of the data with, for example, the MediaPositionChanged event of the player.
+Note: HTTP (and some other) protocols do not use the netsource so you don't get proper information with http(s) streaming from this method.
+****************************************
+
+- and other fixes and improvements.
+
+- didn't made it this time, maybe next time:
+  - Network authentication,
+  - WPF window as display overlay,
+  - Display (video) recorder,
+  - Webcam recorder
+  - and others.
+
+Thank you, Peter
+
+--------------------------------
+--------------------------------
+
+Version 1.1 - November 8, 2020
+
+
+VIDEO AND PIXEL ASPECT RATIO
+****************************************
+From WikiPedia (https://en.wikipedia.org/wiki/Aspect_ratio_(image)): The aspect ratio of an image is the ratio of its width to its height. It is commonly expressed as two numbers separated by a colon, as in 16:9. For an x:y aspect ratio, the image is x units wide and y units high. Widely used aspect ratios include 1.85:1 and 2.39:1 in film photography, 4:3 and 16:9 in television, and 3:2 in still camera photography. 
+
+Widescreen: if a widescreen (16:9) video is displayed incorrectly, you can use the Player.Video.Widescreen property to display the video image in the correct format, for example:
+    myPlayer.Video.Widescreen = true;
+
+The Widescreen property is a shortcut of the aspect ratio property that can be used to set any video aspect ratio, for example (SizeF = float values):
+    myPlayer.Video.AspectRatio = new SizeF(16, 9);
+A value of SizeF.Empty (or new SizeF(0, 0)) will (re) enable the default aspect ratio of videos.
+
+Currently, PVS.MediaPlayer cannot provide the original (intended) aspect ratio of media. If you do not change the aspect ratio, the Player.Video.AspectRatio property will always return Size.Empty (0F, 0F). Optionally, use the Player.Video.SourceSize (see also below) property to get the dimensions (width x height) of the video being played.
+
+Related event: Player.Events.MediaVideoAspectRatioChanged.
+
+- Pixel Aspect Ratio: sometimes the size ratio of a video image is based on pixels that are not square. PVS.MediaPlayer now converts such video aspect ratios automatically to the more common square pixel ratio of the computer screen to show the correct video image size ratio.
+
+These aspect ratio options work seamlessly with all other player options such as display modes, overlays, clones, etc. and will most likely only need to be used in special and rare cases. But now they are there when you need them.
+****************************************
+
+- Rotated videos - Video from a handheld device, such as a mobile phone, is often rotated by 90, 180, or 270 degrees. If the camera stores the orientation as metadata in the video file, the image can be adjusted at the time of playback (source: https://docs.microsoft.com/en-us/windows/win32/medfound/mf-mt-video-rotation).
+PVS.MediaPlayer will now display rotated videos with the correct aspect ratio. Rotation was not taken into account in previous versions (because PVS.MediaPlayer determines the displayed image dimensions of videos, not Media Foundation).
+- Thanks to Richard, "licric", for his comments and sample video in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- Source size: The Player.Video.SourceSize property now returns the original video dimensions adjusted for the pixel aspect ratio and rotation. This is the value that the player uses to display videos in the correct aspect ratios and is also best suited to be used for any further editing. This value may therefore differ from values displayed by other information sources (such as the properties window in Windows Explorer).
+
+- Repeat: the repeat function now jumps back to the start position of the media more quickly (without delay) when the stop position is reached (made possible by the improved media ended event in the previous version of the library).
+
+- Position slider subtitles: using the position slider to search (scrub, scroll) without "live update", subtitles are suppressed. When ending the search while the media is paused, the subtitles were not displayed until the media was resumed. Now subtitles are always shown (if applicable) when finishing the search.
+ 
+- Audio output peak meters: in the special case when all system audio devices are turned off (or removed) during media playback, the audio output peak meter event will now indicate volume values of -1 (as expected) so that the peak meters will no longer indicate positive output values. Previously, the event indicated the last measured values before the devices were turned off.
+
+- Changing the player's display window to a different display window during media playback: With the many changes to the playback of different sources in previous versions, this option was not updated correctly. This option should now work properly again: media continues to play in the newly assigned viewing window with all relevant settings such as overlays, clones and taskbar indicators adjusted accordingly.
+
+- Display clones: fixed a fatal bug when using a display clone shape when only a display overlay (Player.Overlay.Hold) is shown (and no video).
+
+- Temporary files are created when playing byte arrays and images. Using multiple players playing the same byte array or image may cause a naming conflict with the temporary files (because the media name must be preserved). This has now been resolved by adding one or more spaces to the name.
+
+- Video acceleration: added an option to disable the DirectX Video Acceleration (DXVA) option in the player's topology loader (default: enabled). Disabling this option may (or may not) resolve black screen issues with display clones and screen copies on certain computers. For example:
+    myPlayer.Video.Acceleration = false; // applies to next media played.
+
+CREATEPARAMS OVERRIDE - WS_EX_COMPOSITED
+****************************************
+Some users of the PVS.MediaPlayer library have reported problems overriding the CreateParams method with WS_EX_COMPOSITED to enable form-wide double-buffering. Videos will not play properly after using this option.
+
+WS_EX_COMPOSITED (0x02000000) - Paints all descendants of a window in bottom-to-top painting order using double-buffering (from: https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles). Used, for example, as follows:
+
+    protected override CreateParams CreateParams
+    {
+        get
+        {
+            CreateParams cp = base.CreateParams;
+            cp.ExStyle |= 0x02000000;
+            return cp;
+        }
+    }
+
+The only solution I have been able to find so far is to use the following 2 statements in the form shown eventhandler (or elsewhere once the form is visible):
+    
+    private void Form1_Shown(object sender, EventArgs e)
+    {
+        Width++; Width--;
+    }
+
+It's about changing the size of the form, you can also use the height of the form and/or swap the ++ and --, etc.
+So you only have to use this once. It is a more or less accidental discovery and why this is necessary is not known to me.
+
+- Thanks to a comment from "Sedulurk Rewoul" and others in the comments section of the PVS.MediaPlayer article at CodeProject.
+****************************************
+
+- PVSPlayerExample application: updated with all changes to the library and more, for example you can find a video aspect ratio dialog to play with in the DisplayMode menu (the one that shows "ZoomCenter" by default).
+
+- FolderView application: fixed some issues with the "Audio Hold" option. Selecting "Audio Hold" in a view window will keep the audio from that window, even if other windows are active. In some cases, an "Audio Hold/Release" bug caused an error when closing the FolderView sample application.
+FolderView now also shows image files (.ico excluded).
+
+- HowTo applications: descriptions and examples in the "How To ..." sample applications have been updated and expanded.
+
+- and other fixes and improvements.
+
+
+Thanks, Peter
+
+--------------------------------
+--------------------------------
+
+Version 1.0 - September 14, 2020
+
+
+- fixed the Player.Events.MediaEnded event (which did not always accurately report the end of the media) by using another media ended event generated by Media Foundation.
+- Thanks to a comment from "Filip Filipovic" in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- metadata (Player.Media.GetMetadata): a missing value for the "Artist" field is no longer replaced by the title of the folder where the media file is located (the "Artist" field remains empty).
+
+- display clones: removed a bug introduced in the previous version with redrawing clone windows when the main window was resized and in some other cases.
+
+- and other fixes and improvements.
+
+
+Thank you, Peter
+
+--------------------------------
+--------------------------------
+
+Version 0.99.1 - July 7, 2020
+
+
+****************************************
+About this update:
+The release of this update was delayed due to a number of unfinished new items that lacked the time and effort to complete them. Since there are some important changes and improvements in this update, I don't think it would be wise to postpone this update any longer. The unfinished new items may be added in subsequent updates.
+****************************************
+
+- fixed raising the MediaStarted event twice (Player.Events.MediaStarted). This event was raised once too often when media playback was started (Player.Play).
+
+- fixed Player.Media.SourceType: livestreams (MediaSourceType.LiveStream) were reported as online files (MediaSourceType.FileStream).
+- added Player.Media.SourceCategory: gets the source category of the playing media, e.g. whether it is a local file, a remote file or a capture device, for example:
+    if (myPlayer.Media.SourceCategory == MediaSourceCategory.LocalFile) // media is local audio/video file, byte array or image.
+
+- improved detection and reporting of lost internet connections (a short timeout/recheck period (usually around 20 seconds) is used before reporting a connection loss - there may also still be data in the download buffer playing before a connection loss is reported).
+
+- fixed the frame rate information obtained with Player.Media.VideoFrameRate. The value could sometimes be wrong if very large numbers were used (by Media Foundation) to calculate the frame rate.
+
+- fixed a few issues with display clones:
+- display shapes were accidentally reset each time the content of a display clone was refreshed,
+- display shapes were sometimes not changed when another shape was selected due to race conditions (clones paint thread),
+- in combination with Player.Display.Hold and playing next media, video images from previous media were sometimes not completely erased.
+
+- fixed the taskbar progress indicator state "Undetermined" (used with webcams and live streams among others) which was sometimes replaced with the "Normal" state.
+
+- added Player.TaskbarProgress.State: gets the state of the player's taskbar progress indicator (e.g. paused) and allows to change it (for special purposes). When the playback status of the player changes, the display state of the taskbar progress indicator also changes, even if it has been changed with this option. For example:
+    myPlayer.TaskbarProgress.State = TaskbarProgressState.Indeterminate;
+
+- added Player.Audio.Cut and Player.Video.Cut: sometimes a player cannot play a media file because the format is not supported by Media Foundation. Often this only concerns the video or the audio part that cannot be played. If you still want to play the playable video or audio part, you can disable the unplayable part of the media file with these properties. The information about the disabled part remains available. For example:
+    myPlayer.Audio.Cut = true; // before playing, use to turn off the audio portion of the media.
+Note: These settings differ from settings such as Player.Audio.Mute.
+- Thanks to Rolf, "Member 12152821", for his comments in the comments section of the PVS.MediaPlayer article at CodeProject and research on some of the media formats not supported by Media Foundation.
+
+- renamed all "ScreenCopy" to "Copy", for example, Player.Copy.ToImage (was: Player.ScreenCopy.ToImage) and CopyMode.Video (was: ScreenCopyMode.Video).
+- added image resize options to Player.Copy.ToImage/ToClipboard/ToFile and Player.Video.ToImage/ToClipboard/ToFile. This allows, for example, thumbnail images (for example: Image thumbnail = myPlayer.Video.ToImage(128);) and enlarged images (for example: myPlayer.Video.ToFile(@"D:\Pictures\Poster.png", ImageFormat.Png, 10000);) to be created. If you enlarge an image, if possible, show the source image in actual size for best results.
+- Thanks to a comment from "MineEric64" in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+
+MEDIA PLAYBACK SPEED
+****************************************
+- fixed the player controlled speed slider: if you just clicked the thumb, the playback speed was set to a random speed.
+
+- the speed setting in the player has also been changed. In the last previous versions, an almost complete restart (by PVS.MediaPlayer) of the media was used when the speed was changed, but now in most cases the actual Media Foundation method is used again.
+
+However, there are 2 problems with the Media Foundation method: the used audio device is always reset to the default audio device of the system and there is a significant delay in changing the speed of the audio. The latter is probably caused by Media Foundation not only playing the audio faster or slower, but also adapting the sound to the new speed in terms of pitch and the like (and yes, you can smoothly vary the speed of video).
+
+PVS.MediaPlayer now uses the Media Foundation method to change the speed unless you are using an audio device other than the standard system audio device (unless the media contains no audio) or if the media being played only contains audio (and no video). When playing online (internet) media files, the Media Foundation method is always used.
+
+- Thanks to a comment from "ClarkGodfrey" in the comments section of the PVS.MediaPlayer article at CodeProject.
+****************************************
+
+MEDIA CHAPTERS
+****************************************
+- fixed an error reading QuickTime (Apple/mp4) chapter information (Player.Media.GetChapters) when identical start time intervals were saved in a shortened manner.
+The correct UTF-8 encoding is now also used (was ASCII).
+
+- added Matroska (.mkv, .mka, .webm) chapter information (Player.Media.GetChapters). This also changed the contents of the MediaChapter data class, please see below.
+
+- about the new media chapter information (MediaChapter): you can get media chapter information with for example:
+    MediaChapter[] chapters_I, chapters_II;
+    myPlayer.Media.GetChapters(out chapters_I, out chapters_II);
+On return, chapters_I can contain chapter information from QuickTime files (mp4, m4a, mvb or m4v) or chapter information from Matroska files (mkv, mka or webm).
+chapters_II may also contain chapter information of QuickTime files but stored in a different format (Nero) in the media file. So chapters_I and chapters_II can both contain data with QuickTime files: both can be identical but also different.
+
+A MediaChapter data class contains the following items:
+    Title = string array -> QuickTime and Nero: 1 item (in Title[0]), Matroska: 1 or more items.
+    Language: = string array (3 letter name (ISO 639.2)) -> Quicktime and Nero: not used (null), Matroska: 1 or more items (the same number as with Title).
+    StartTime = TimeSpan -> all formats: 1 item.
+    EndTime = Timespan -> Quicktime and Nero: not used (null), Matroska: 1 item.
+You can find a code sample in the PVSPlayerExample application (file: MainWindow.cs, method: SetInterfaceOnMediaStart (example is at the end of this method)).
+
+Note: the GetChapters methods do not check for file extensions, but check the files themselves. You may want to add a file extension check in your application if you also play many file types that do not support chapter information.
+****************************************
+
+PLAYER VIDEO FRAME STEP METHOD
+****************************************
+- changed and improved the player's step method (Player.Position.Step) and also:
+
+- improved video frame step accuracy (for special purposes only): you can now step forward exactly 1 frame in a playing media file with the Player.Position.Step method. You must first pause playback and then use the step method as long as desired to resume playback immediately afterwards (see below), for example:
+    1. myPlayer.Pause();
+    2. myPlayer.Position.Step(1); // repeat as many times as you want (for example at the push of a button)
+    3. myPlayer.Resume();
+
+If you use this step sequence, a player may not always update the current video frame (eg, when using a position slider) before the resume method is used. It doesn't seem possible to resume normal playback with Media Foundation after using the "1 frame step" method, therefore the resume method (or myPlayer.Paused = false) contains special code to 'revive' playback when the "1 frame step" method has been used. And although this method allows you to step frame by frame, a PVS.MediaPlayer player has to keep a margin at the end of a media file for several reasons, which prevents stepping to the very last few frames of a file.
+
+- Thanks to a comment from "James G. Brown" in the comments section of the PVS.MediaPlayer article at CodeProject.
+****************************************
+
+HIGH SPEED VIDEO PLAYBACK
+****************************************
+- the new 1 frame step method (see above) also enables high speed video playback, for example (experimental/trial):
+    // myPlayer.LastError indicates "Out of Range" - you have "stepped" past the end of the file.
+    myPlayer.Pause();
+    while (!myPlayer.LastError)
+    {
+        result = myPlayer.Position.Step(1);
+        for (int i = 0; i < 4000; i++) Application.DoEvents(); // slow down
+    }
+    myPlayer.Resume();
+
+- or without pausing the player and using a higher step rate:
+    myPlayer.Audio.Mute = true;
+    while (!myPlayer.LastError) myPlayer.Position.Step(50);
+    myPlayer.Stop();
+
+These simple examples cannot be interrupted by the user. If desired, such functionality should be included in the while loop as well as handling other events such as when the application is closed during execution, for example stop when a mouse button is pressed (you can also consider using a timer instead of a while loop):
+    myPlayer.Pause();
+    while (!myPlayer.LastError && MouseButtons != MouseButtons.Left)
+    {
+        myPlayer.Position.Step(1);
+        for (int i = 0; i < 100; i++) Application.DoEvents();
+    }
+    myPlayer.Resume();
+
+Please note that these methods are different from normal playback methods. And because these methods demand a lot (too much?) from a computer system, they are probably more of a curiosity than a useful solution. However, this example (with an additional delay) is available in the PVSPlayerExample application and can be accessed from the speed selection menu.
+
+To ensure that there is enough space at the end of the file to 'recover' from the high speed, you can use a larger end of file margin, for example:         myPlayer.Position.StepEOFMargin = 500;
+****************************************
+
+CUSTOM DISPLAY SHAPES
+****************************************
+Note: Depending on the content, using this display shape may require a powerful computer processor and graphics card.
+In case of problems, much better performance can be achieved by applying the custom shape to a display clone instead of the player's main display window (and maybe hiding (with "Opacity = 0") the main window, as can be done in the PVSPlayerExample application). For complicated shapes it may be better to use a display overlay.
+
+- added custom display shape, you can create any display shape you want with a graphics path:
+    GraphicsPath myGraphicsPath = new GraphicsPath();
+    // add items to the graphics path and then set the custom shape:
+    myPlayer.Display.CustomShape = myGraphicsPath;
+After you have created the custom shape, you can select it just like any other shape:
+    myPlayer.Display.Shape = DisplayShape.Custom;
+
+This is how the sample custom display shape is defined in the PVSPlayerExample application for the main player:
+
+    // Create a graphics path
+    GraphicsPath path = new GraphicsPath();
+
+    // Create the font for the text
+    Font font = new Font("Times New Roman", 128);
+
+    // Create the text (strings) layout information
+    StringFormat format = new StringFormat();
+    format.Alignment = StringAlignment.Center;
+    format.LineAlignment = StringAlignment.Center;
+
+    // Add a text with a very small line spacing to the graphics path
+    path.AddString("VIDEO", font.FontFamily, 0, 128, new Point(0, 0), format);
+    path.AddString("SHAPE", font.FontFamily, 0, 128, new Point(0, 88), format);
+
+    // Omitted due to high computer requirements:
+    // Add an additional outline to the graphics path
+    // Pen pen = new Pen(Color.Black, 2);
+    // path.Widen(pen); // outline, only the thickness of the pen is relevant
+    // pen.Dispose();
+
+    // Add a small, centered and solid oval to the graphics path
+    RectangleF r = path.GetBounds();
+    r.X += (r.Width / 4); r.Width -= (r.Width / 2);
+    r.Y += (r.Height / 4); r.Height -= (r.Height / 2);
+    path.FillMode = FillMode.Alternate;
+    path.AddEllipse(r);
+
+    // Create the player's custom display shape
+    // Activate (later) with myPlayer.Display.Shape = DisplayShape.Custom;
+    Player1.Display.CustomShape = path;
+
+    // These are no longer needed once the player's custom shape is created
+    font.Dispose();
+    format.Dispose();
+    path.Dispose();
+
+This is how the sample custom display shape is defined in the PVSPlayerExample application for the webcam player:
+
+    GraphicsPath path = new GraphicsPath();
+    Font font = new Font("Webdings", 128);
+    path.AddString("¸", font.FontFamily, 0, 128, new Point(0, 0), null);
+    _webcamPlayer.Display.CustomShape = path;
+    font.Dispose();
+    path.Dispose();
+
+And of course you can also add all kinds of other graphics to a graphics path and, for example, shapes from symbol fonts like "Webdings".
+Note: The true dimensions of this display shape is determined by the (usually variable) dimensions of the player's display window and/or the size of the video being played. You can only determine the dimensions of this shape if you use a fixed size display window and/or a fixed size video image.
+****************************************
+
+- and other fixes and improvements.
+
+
+Thanks, Peter
+
+--------------------------------
+--------------------------------
+
+Version 0.99 - May 8, 2020
+
+
+- fixed an issue in handling live streams (e.g. internet radio stations) that prevented the streams from playing.
+
+- the handling of errors when playing media has been improved. The detection of errors was set too strictly in the previous version of the library, so that media playback was sometimes stopped (and raising the MediaEnded event) where this was not necessary. A player can correct or ignore certain errors without having to stop playing media.
+
+- the MediaEnded/Notice event is no longer incorrectly raised when starting media fails due to an error (this only happened after a certain point in the starting process).
+
+- changed MediaEnded/Notice arguments: the members of the EndedEventArgs that indicated the source of the media that ended (for example "File" or "Webcam") have been replaced by the enum MediaSourceType, for example: if (e.MediaSourceType == MediaSourceType.Webcam) ... // a webcam has stopped playing.
+
+- the new media source type information in the EndedEventArgs can also be retrieved from the Player.Media.SourceType property when media is playing, for example: if (myPlayer.Media.SourceType == MediaSourceType.LiveStream) ... // a live stream is playing
+
+- added 3 full screen modes: FullScreenMode.Display_AllScreens, .Parent_AllScreens and .Form_AllScreens. These new full screen modes do the same as the already existing modes, but instead of using one screen, they use all available screens (virtual screen, video wall). The full screen mode Display_AllScreens can also be activated with just one instruction, for example: myPlayer.Video.Wall = true.
+
+- added a device count property for audio input, audio output and webcam devices to easily get the number of available devices, for example: int webcamCount = myPlayer.Webcam.DeviceCount. The device count properties are a combination of checking for null and counting the number of available devices.
+
+- the player can now also play images. The player does this by converting an image to an mp4 video file and then playing it. The length and frame rate of the video file can be freely selected (within certain limits). The longer the playing time and the higher the frame rate, the longer it takes to create the video file. The standard playing time of 5 seconds and a frame rate of 16 frames per second can provide a fast (usually less than a second) and 'stable' video conversion of the image. Nevertheless, occasionally an image will refuse to play for unknown reasons.
+Very low frame rates (for fast video generation) are not suitable for frequently repeating the same image, the accuracy of the playback position (sliders, etc.) and a 'stable' display of images. But if you only display a series of images without too much interaction, you can give it a try.
+An image can be played using the standard Play method (for example myPlayer.Play(@"C:\Pictures\myPicture.jpg")) and some relevant settings can be changed via the Player.Images class, for example myPlayer.Images.Enabled = false. If you need a manual/button controlled slideshow of images, just use the pause mode of the player.
+- Thanks to a comment from "kilauea-de" in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- added Player.Display.Hold (and Player.Images.Hold with the same function): this property can remove the display 'black gap' between two video files (especially image files) by not clearing the display when a video file has finished playing. The default value of this property is 'false'. If set to 'true', this property has to be reset to 'false' when all media has finished playing (eg at the end of a playlist) to clear the player's display. The player automatically clears the display (without turning off the hold option) when an error occurs during playback (but not when an error occurs while starting media (this allows you to 'ignore' errors)), when the media is stopped by the user (Player.Stop) or when starting media does not contain video.
+For example: myPlayer.Display.Hold = true.
+If you don't want to disable the Hold option but just clear the screen (when the Hold option is enabled and and no media is playing) you can use: myPlayer.Display.HoldClear().
+Note: the image shown on the player's display is only held visually (without underlying image), it cannot be resized (for example, when the display size is changed). Beware that changing the value of the Hold property (or using HoldClear) also may change the player's LastError value (as all properties do).
+The Player.Display.Hold option is now enabled for all media (except webcams) in the PVSPlayerExample sample application.
+
+- added mp4 chapters: mp4 type files may contain chapter information in the original Apple format and the newer Nero format. The Nero format was created because the Apple format is rather complicated, but now we have two formats. PVS.MediaPlayer can extract both types of chapter information (if any) from an mp4 file. Both usually contain the same information, but they can also differ or one or both may be missing. For example, requesting chapter information from the media being played can be done as follows:
+    MediaChapter[] appleChapters, neroChapters;
+    myPlayer.Media.GetChapters(out appleChapters, out neroChapters);
+If no chapter information is available, the result is null. Chapter information can also be retrieved from any (mp4) file by adding the file name to the method, for example:
+myPlayer.Media.GetChapters (@"C:\Videos\myVideo.mp4", out appleChapters, out neroChapters);
+You can use the chapter information to set the player's playback position (usually chosen from a menu), for example:
+    myPlayer.Position.FromBegin = appleChapters[1].StartTime;
+Note: These methods do not use the file extension of media files to determine the content. If desired you can include a check on the file extension (.mp4, .m4v, etc.) in your application.
+- Thanks to a comment from "Member 14636585" in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- fixed "pixel precision" for display clones flip modes.
+
+- fixed an error with subtitles when changing the text encoding while subtitles are active.
+
+- fixed the error codes with setting start and stop positions of playing media (Player.Media.StartTime/.Stoptime). Also, if the stop time exceeds the length of the media, no error occurs and the stop time is changed by the player to the natuaral end of the media (indicated by TimeSpan.Zero/"00:00:00").
+
+- added a display circle and square shape, for example, myPlayer.Display.Shape = DisplayShape.Circle.
+
+- and other fixes and improvements.
+
+
+Many thanks to the 5-star voters and those who posted inspiring positive comments in the comments section of the CodeProject article. You keep this project going.
+Thank you, Peter
+
+--------------------------------
+--------------------------------
+
+Version 0.98.2 - February 12, 2020
+
+
+- renamed library source code file "PeakMeter.cs" to "AudioDevices.cs"
+
+- fixed an error in detecting Windows versions. Some newer versions of Windows 10 may not have been recognized as such and could prevent the creation of PVS.MediaPlayer players.
+
+- added (static) properties "Player.MFPresent_ResultCode" and "Player.MFPresent_ResultString" to make it easier to display the reason why the PVS.MediaPlayer cannot be used when Media Foundation is not installed or with an unsupported version of Windows, for example: if (!Player.MFPresent) MessageBox.Show(Player.MFPresent_ResultString);
+
+- added the "MediaName" property to the MediaEnded and MediaEndedNotice event arguments with the (full path +) name of the media that stopped playing.
+
+- fixed webcam display update when the webcam format has changed (with the Player.Webcam.Format property).
+- fixed webcam "already in use" error (webcam player was not stopped correctly).
+- fixed "LastError" values when playing 'missing' webcams or webcams without a display window.
+- added "PowerLineFrequency" webcam property (anti-flicker), added "Name" to WebcamProperty class and renamed webcam property "Backlight" to "BacklightCompensation".
+- added alternative access to webcam properties with "Player.Webcam.SetProperty", "Player.Webcam.ResetProperty" and others, for example: myPlayer.Webcam.SetProperty(myPlayer.Webcam.Brightness, 100, false);. Data from webcam properties is still obtained through one of the player's properties, such as WebcamProperty brightness = myPlayer.Webcam.Brightness;
+- webcams now detect all system changes that affect playback, such as disconnecting the webcam or changing the Windows privacy settings.
+
+- improved error handling with playing webcams, audio input devices and online streaming.
+- if during playback of an audio input device (on its own, without webcam) the audio device is disabled, playback will now be stopped and the MediaEnded event will be raised.
+
+- the maximum video zoom size is now limited to Player.Video.MaxZoomWidth x Player.Video.MaxZoomHeight (default 6400 x 6400 (this limit is mainly determined by webcams)) pixels to prevent "serious problems" - these problems can usually be solved at runtime, but could cause some "confusion". However, the values of these properties can be changed for "special purposes", for example myPlayer.Video.MaxZoomWidth = 12000;
+- the zoom display overlay is now also available in the webcam windows of the PVSPlayerExample application (right click on the display for a menu).
+
+- improved the audio device changed events: the events "MediaAudioDeviceChanged" and "MediaSystemAudioDevicesChanged" (and others) are now always executed on the user interface (ui) thread, so you don't have to use "InvokeRequired" or similar constructions (applies now to all PVS.MediaPlayer events).
+
+- improved "pixel precision" for display modes (DisplayMode.ZoomCenter, CoverCenter and others).
+
+- the speed slider controlled by PVS.MediaPlayer has changed: speed is now set when the mouse is released (no more 'live' speed update) and some issues have been solved, eg arrow keys control.
+
+- improved "scrubbing" (seeking (for example with a position slider)) performance.
+
+- added "Player.PlayUnblock" property (not enabled by default):
+PVS.MediaPlayer waits for Media Foundation to (async) start playing media and can therefore block the main UI thread if that takes a while. This can happen with slow webcams or online streaming to name just a few. In that case you could use "threading" to keep the main ui thread "alive". If you do not want to use threading, you can set the "PlayUnblock" property to "true". PVS.MediaPlayer will then repeatedly use the (questionable?) "Application.DoEvents" method to keep your main user interface responsive when starting media. (If you do want to use threading: a player must use the thread it (and its display window) is created on.)
+- Thanks to a comment from "Member 12999234" in the comments section of the PVS.MediaPlayer article at CodeProject.
+- This method is now used in the PVSPlayerExample application.
+
+- added "Player.PlayTimeOut" property (default value 40 seconds):
+With the "PlayUnblock" property activated, you can set the waiting time for new media to start playing with the "PlayTimeOut" property. If you do not use an activated "PlayUnblock" property, the time-out is determined by Media Foundation (and may be infinite).
+
+- No rtsp live streaming:
+PVS.MediaPlayer is now ready to play rtsp (and similar) streams, but Media Foundation does not seem to be able to play (most or all?) rtsp streams properly (yet?).
+On the other hand, http(s) file streaming generally does very well (with the formats supported by Media Foundation of course).
+
+- PVSPlayerExample: fixed webcam windows with a shape, added webcam auto copy and webcam properties window and others.
+
+- and other fixes and improvements.
+
+
+Thanks, Peter
+
+--------------------------------
+--------------------------------
+
+Version 0.98.1 - December 22, 2019
+
+
+- added AudioInput class for managing audio input devices. Audio input devices can be used with webcams or by themselves.
+The sound from audio input devices can be played, just like the sound in media files. 
+
+- added an audio option to webcams, see also article at CodeProject, for example:
+    WebcamDevice[] webcams = myPlayer.Webcam.GetDevices();
+    AudioInputDevice[] microphones = myPlayer.AudioInput.GetDevices();
+    myPlayer.Play(webcams[0], microphones[0], panel1);
+
+- audio input devices can also be played separately (to hear the input sound on the selected audio output device), for example:
+    AudioInputDevice[] microphones = myPlayer.AudioInput.GetDevices();
+    myPlayer.Play(microphones[0]);
+
+- the Webcam and AudioInput classes have an "Update" method to restore the webcam and audio input devices if necessary.
+With older webcams, starting the first time after switching on may take a little longer.
+
+- video images (screen copies - always without display overlay) can now also be saved to the system clipboard or to a file with for example:
+    myPlayer.Video.ToFile(fileName, ImageFormat.Png); // fast copy without copying a display overlay
+
+- the arguments of the "MediaSystemAudioDevicesChanged" and a few other events have changed, see the article on CodeProject.
+
+- and other fixes and improvements.
+
+
+Thank you, Peter
+
+--------------------------------
+--------------------------------
+
+Version 0.98 - December 5, 2019
+
+
+Webcams:
+- a PVS.MediaPlayer player can now also "play" webcams (video only, no recording) just like media files, for example:
+  WebcamDevice[] webcams = myPlayer.Webcam.GetDevices();
+  if (webcams != null) myPlayer.Play(webcams[0], panel1);
+So far, only USB-connected webcams have been tested with the PVS.MediaPlayer library.
+See the PVS.MediaPlayer article on CodeProject (see link at "Questions and Remarks" above) for more information.
+
+- the MediaEnded and MediaEndedNotice events have 2 new properties: e.ErrorCode contains an error code if media has stopped playing due to an error and e.Webcam indicates whether a webcam was playing.
+
+- renamed method "PlayResource" to "Play"
+All supported media sources (local/network/internet media files, application embedded media resources and webcams) can now be played with the Player.Play method.
+
+Display shapes and overlay shapes:
+- display shapes (in videoshape mode) are now applied to the visible part of a video image and not to the entire video image (which may be partially outside of the display window).
+- fixed some problems with overlay shapes, for example when the video image is partially outside the display window or when switching between the overlaymode options.
+- fixed the size of display clone shapes when using cover layout (displaymode CoverCenter).
+- the use of display overlay shapes may still require some special overlay design when used with display clones and screen copies (video and display copy mode).
+
+The new Playlist class allows playlists (of type .m3u, .m3u8 or .ppl) to be loaded into or saved from a list of file names (string array), for example:
+  string[] mediaFiles = myPlayer.Playlist.Open(@"C:\Documents\Playlists\MyMovieList.m3u");
+  myPlayer.Playlist.Save(@"C:\Documents\Playlists\NewMovieList.m3u", mediaFiles);
+- these methods only read or write file names, other information is ignored (see also library method Player.Media.GetMetadata()) and are for convenience only, a PVS.MediaPlayer player does not "play" playlists. Relative paths in playlists are supported.
+
+ScreenCopy:
+- the ScreenCopyMode.Video and .Display use the same copying method as the player's display clones: windows in front of the video or display are not copied. Due to the video hardware accelleration on some computers this method may not always work. Display clones may not show an image and screencopies (video and display only) may not be possible. In this case, the display clones cannot be restored, but you can get the screen copies now back to work by turning off the clone copying method with, for example:
+  myPlayer.ScreenCopy.CloneMode = false;
+
+- the example applications are now compiled using .NET Framework 4.0 (previously 3.5).
+- all information about changes to the PVS.MediaPlayer library prior to version 0.97 has been deleted from this file.
+
+- and other fixes and improvements.
+
+
+Thanks, Peter
+
+--------------------------------
+--------------------------------
+
+Version 0.97 - October 20, 2019
+
+
+- the library has been renamed from PVS.AVPlayer to PVS.MediaPlayer.
+
+- PVS.MediaPlayer can now also play media files that have a wrong or missing file extension or MIME type (if the file contains a media type that is supported by Media Foundation, of course).
+This issue is solved thanks to a comment by fuujinn in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- all library tag readers have been replaced by the Media Foundation Shell Metadata provider:
+renamed Player.Media.GetTags to Player.Media.GetMetadata
+renamed MediaTags to Metadata, for example:
+Metadata data = myPlayer.Media.GetMetadata();
+label1.Text = data.Title;
+
+- playback speed settings have been moved to a new Speed class, for example, myPlayer.Speed.Rate = 2; (was myPlayer.Speed = 2;)
+
+- added Player.Speed.Boost:
+this new option increases the maximum possible playing speed of video files (mp4 video may give an increase of the maximum playing speed from 2 to 8 times the normal speed). This is made possible by 'dropping' video frames (= stream thinning). A better (smoother) result can possibly be obtained by using a timer and changing the playback position of media yourself.
+Usage example: myPlayer.Speed.Boost = true; (for a quick test, this option can be activated in the PVSPlayerExample application by typing 9.99 in the speed input box at the bottom left (sets the speed to 8.00, change to other speeds as desired to test), type 1.00 in this box or exit the PVSPlayerExample to disable this option.)
+This option is added to the library thanks to a comment by sauronio in the comments section of the PVS.MediaPlayer article at CodeProject.
+
+- added Player.Overlay.Blend:
+this new option allows the use of the same opacity of display overlays on display clones and screen copies as on the main player display. This option uses the Win32 AlphaBlend function instead of the TransparentBlt function when activated. Use OverlayBlend.Opacity if the overlay does not have a transparent background (for example: PVSPlayerExample "Status Info" overlay). Otherwise use OverlayBlend.Transparent (for example: PVSPlayerExample "Subtitles" overlay).
+Overlay Blend does not work well (or not at all) with certain interface elements, this can in most cases be solved by painting the content yourself, for example with labels use something like e.Graphics.DrawString(Text, Font, b, 0, 0); Usage example: myPlayer.Overlay.Blend = OverlayBlend.Transparent.
+
+- fixed an issue with setting the playback speed to normal speed (1.0) when no media is playing.
+- added display clones layout property CloneLayout.Cover.
+- fixed 'pixel-precision' and 'drag resize' issues with display shapes.
+- the 'newline' character used with subtitles has changed from a single 'carriage return' (code 13, '\r') to a 'carriage return' and 'line feed' (code 10, '\n'), so it's now "\r\n".
+- the display overlay delay (Player.Overlay.Delay) default value has changed from 300 to 200 milliseconds.
+- renamed Player.Media.GetLength to Player.Media.GetDuration - renamed enum MediaLength to MediaPart (for example, MediaPart.BeginToEnd).
+
+- updates and fixes of example applications: PVSPlayerExample preferences settings fixed and others.
+- due to the name change, the PVSPlayerExample preferences folder now also has a different name. You can copy the 'old' preferences file and default playlist to the new folder.
+
+- and others.
+
+- No new sound recorder yet:
+The intention was to include a new Media Foundation-based sound recorder in this version. Although the recorder was largely completed, for reasons that are still unclear, I cannot commit myself to completing the code. Because this update has been postponed for too long, I have decided to first release this update without the new recorder. The recorder will then be included in one of the following updates. Perhaps. Sorry for the delay.
+
+
+Thank you, Peter
+
+--------------------------------
+End of text
+
