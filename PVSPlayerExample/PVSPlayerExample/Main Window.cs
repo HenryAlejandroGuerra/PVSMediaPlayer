@@ -405,7 +405,7 @@ namespace PVSPlayerExample
 
             // This can't be done in the designer (?): remove left (check) margin in some menus:
             ((ToolStripDropDownMenu)playListMenuItem.DropDown).ShowImageMargin      = false;
-            ((ToolStripDropDownMenu)displayClonesMenuItem.DropDown).ShowImageMargin = false;
+            //((ToolStripDropDownMenu)displayClonesMenuItem.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)webcamsMenuItem.DropDown).ShowImageMargin       = false;
             ((ToolStripDropDownMenu)chaptersAppleMenuItem.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)chaptersNeroMenuItem.DropDown).ShowImageMargin  = false;
@@ -839,7 +839,7 @@ namespace PVSPlayerExample
                         break;
 
                     case Keys.D: // Add Display Clone
-                        addCloneMenuItem.PerformClick();
+                        //addCloneMenuItem.PerformClick();
                         break;
 
                     case Keys.W: // Play all webcams
@@ -875,41 +875,41 @@ namespace PVSPlayerExample
 
                     // Toggle Overlay Mode
                     case Keys.D: // Overlay Display
-                        displayMenuItem.PerformClick();
+                        //displayMenuItem.PerformClick();
                         break;
 
                     case Keys.V: // Overlay Video
-                        videoMenuItem.PerformClick();
+                        //videoMenuItem.PerformClick();
                         break;
 
                     case Keys.H: // Overlay Hold
-                        overlayHoldMenuItem.PerformClick();
+                        //overlayHoldMenuItem.PerformClick();
                         break;
 
                     // Activate example overlay
                     case Keys.F1:
-                            messageMenuItem.PerformClick();
+                            //messageMenuItem.PerformClick();
                             break;
                     case Keys.F2:
                             scribbleMenuItem.PerformClick();
                             break;
                     case Keys.F3:
-                            tilesMenuItem.PerformClick();
+                            //tilesMenuItem.PerformClick();
                             break;
                     case Keys.F4:
-                            bouncingMenuItem.PerformClick();
+                            //bouncingMenuItem.PerformClick();
                             break;
                     case Keys.F5:
-                            PiPMenuItem.PerformClick();
+                            //PiPMenuItem.PerformClick();
                             break;
                     case Keys.F6:
                             subtitlesMenuItem.PerformClick();
                             break;
                     case Keys.F7:
-                            zoomSelectMenuItem.PerformClick();
+                            //zoomSelectMenuItem.PerformClick();
                             break;
                     case Keys.F8:
-                            videoWallMenuItem.PerformClick();
+                            //videoWallMenuItem.PerformClick();
                             break;
                     case Keys.F9:
                             MP3CoverMenuItem.PerformClick();
@@ -918,10 +918,10 @@ namespace PVSPlayerExample
                             MP3KaraokeMenuItem.PerformClick();
                             break;
                     case Keys.F11:
-                            bigTimeMenuItem.PerformClick();
+                            //bigTimeMenuItem.PerformClick();
                             break;
                     case Keys.F12:
-                            statusInfoMenuItem.PerformClick();
+                            //statusInfoMenuItem.PerformClick();
                             break;
 
                     case Keys.O:
@@ -993,10 +993,10 @@ namespace PVSPlayerExample
                         fullScreenFormMenuItem.PerformClick();
                         break;
                     case Keys.F9: // // FullScreen Parent
-                        fullScreenParentMenuItem.PerformClick();
+                        //fullScreenParentMenuItem.PerformClick();
                         break;
                     case Keys.F10: // // FullScreen Display
-                        fullScreenDisplayMenuItem.PerformClick();
+                        //fullScreenDisplayMenuItem.PerformClick();
                         break;
                     case Keys.F11: // // FullScreen On/Off
                         fullScreenOffMenuItem.PerformClick();
@@ -1714,7 +1714,7 @@ namespace PVSPlayerExample
             // set overlay hold by application
             if (_overlayHold)
             {
-                if (!myPlayer.Overlay.Hold && myPlayer.Overlay.Window != null) overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = true;
+               // if (!myPlayer.Overlay.Hold && myPlayer.Overlay.Window != null) overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = true;
             }
 
             // set video track menu items and label
@@ -2081,7 +2081,7 @@ namespace PVSPlayerExample
                 // reset overlay hold by application
                 if (_overlayHold)
                 {
-                    overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = false;
+                    //overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = false;
                 }
 
                 // reset preventing computer going to sleep (if no other players are using SleepDisabled)
@@ -3260,9 +3260,9 @@ namespace PVSPlayerExample
             myPlayer.CursorHide.Enabled = false;
 
             bool enabled = Screen.AllScreens.Length > 1; // check for null
-            fullScreenFormAllMenuItem.Enabled    = enabled;
-            fullScreenParentAllMenuItem.Enabled  = enabled;
-            fullScreenDisplayAllMenuItem.Enabled = enabled;
+            //fullScreenFormAllMenuItem.Enabled    = enabled;
+            //fullScreenParentAllMenuItem.Enabled  = enabled;
+            //fullScreenDisplayAllMenuItem.Enabled = enabled;
         }
 
         private void FullScreenModeMenu_Closed(object sender, ToolStripDropDownClosedEventArgs e)
@@ -3390,9 +3390,9 @@ namespace PVSPlayerExample
         internal void SetOverlayVideoMode()
         {
             myPlayer.Overlay.Mode = OverlayMode.Video;
-            videoMenuItem.Checked = true;
-            displayMenuItem.Checked = false;
-            overlayModeMenuItem.Checked = false;
+            //videoMenuItem.Checked = true;
+            //displayMenuItem.Checked = false;
+            //overlayModeMenuItem.Checked = false;
         }
 
         // Overlay Mode Display
@@ -3405,16 +3405,16 @@ namespace PVSPlayerExample
         internal void SetOverlayDisplayMode()
         {
             myPlayer.Overlay.Mode = OverlayMode.Display;
-            videoMenuItem.Checked = false;
-            displayMenuItem.Checked = true;
-            overlayModeMenuItem.Checked = true;
+           // videoMenuItem.Checked = false;
+            //displayMenuItem.Checked = true;
+            //overlayModeMenuItem.Checked = true;
         }
 
         // Overlay Hold
         private void OverlayHoldMenuItem_Click(object sender, EventArgs e)
         {
             myPlayer.Overlay.Hold = !myPlayer.Overlay.Hold;
-            overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold;
+            //overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold;
 
             _overlayHold = false; // reset overlay hold by application
         }
@@ -3552,13 +3552,13 @@ namespace PVSPlayerExample
             {
                 if (!myPlayer.Overlay.Hold)
                 {
-                    if (myPlayer.Playing) overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = true;
+                   // if (myPlayer.Playing) overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = true;
                     _overlayHold = true;
                 }
             }
             else if (_overlayHold)
             {
-                overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = _overlayHold = false;
+                //overlayHoldMenuItem.Checked = myPlayer.Overlay.Hold = _overlayHold = false;
             }
 
             myPlayer.Overlay.Window = theOverlay;
@@ -5218,8 +5218,8 @@ namespace PVSPlayerExample
         private void ShowOverlayMenuItem_Click(object sender, EventArgs e)
         {
             myPlayer.DisplayClones.ShowOverlay = !myPlayer.DisplayClones.ShowOverlay;
-            if (myPlayer.DisplayClones.ShowOverlay) showOverlayMenuItem.Text = "Ocultar";
-            else showOverlayMenuItem.Text = "Mostrar";
+            //if (myPlayer.DisplayClones.ShowOverlay) showOverlayMenuItem.Text = "Ocultar";
+            //else showOverlayMenuItem.Text = "Mostrar";
         }
 
         private void Fps01MenuItem_Click(object sender, EventArgs e)
@@ -5279,9 +5279,9 @@ namespace PVSPlayerExample
 
         private void SetClonesFrameRate(object sender, int frameRate)
         {
-            foreach (ToolStripMenuItem item in refreshRateMenuItem.DropDownItems)
+            //foreach (ToolStripMenuItem item in //refreshRateMenuItem.DropDownItems)
             {
-                item.Checked = false;
+                //item.Checked = false;
             }
             ((ToolStripMenuItem)(sender)).Checked = true;
             myPlayer.DisplayClones.FrameRate = frameRate;

@@ -39,40 +39,20 @@ namespace PVSPlayerExample
             this.overlayLight = new PVSPlayerExample.LightPanel();
             this.displayOverlayButton = new PVSPlayerExample.DropDownButton();
             this.displayOverlayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.overlayModeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.overlayHoldMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.messageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scribbleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
-            this.tilesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bouncingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
-            this.PiPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subtitlesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
-            this.zoomSelectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoWallMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.MP3CoverMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MP3KaraokeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
-            this.bigTimeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusInfoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.overlayOffMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayOverlayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullScreenLight = new PVSPlayerExample.LightPanel();
             this.fullScreenModeButton = new PVSPlayerExample.DropDownButton();
             this.fullScreenModeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fullScreenFormMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullScreenFormAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullScreenParentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullScreenParentAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullScreenDisplayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullScreenDisplayAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.fullScreenOffMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullScreenModeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,6 +82,7 @@ namespace PVSPlayerExample
             this.menuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.playDisplayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titlePanel = new PVSPlayerExample.CustomPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.speedPanel = new System.Windows.Forms.Panel();
             this.speedSlider = new PVSPlayerExample.CustomSlider2();
             this.sliderMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -115,7 +96,6 @@ namespace PVSPlayerExample
             this.speedLight = new PVSPlayerExample.LightPanel();
             this.speedLabelText = new System.Windows.Forms.Label();
             this.displayModeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.displayModeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.displayPanel = new System.Windows.Forms.Panel();
             this.displayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -160,27 +140,8 @@ namespace PVSPlayerExample
             this.toolStripSeparator38 = new System.Windows.Forms.ToolStripSeparator();
             this.normalShapeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.displayClonesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addCloneMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator36 = new System.Windows.Forms.ToolStripSeparator();
-            this.showOverlayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshRateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps01MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps02MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps05MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps10MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps15MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps20MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps25MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps30MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps40MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps50MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fps60MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
-            this.removeAllClonesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overlayMenuMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator41 = new System.Windows.Forms.ToolStripSeparator();
-            this.audioDevicesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audioDeviceMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.audioDevicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audioMixerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -198,7 +159,6 @@ namespace PVSPlayerExample
             this.videoTracks = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.videoColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoOverlayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tracksMenuSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.screencopyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.screenCopyMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -279,6 +239,7 @@ namespace PVSPlayerExample
             this.displayParentPanel = new System.Windows.Forms.Panel();
             this.positionSliderPanel = new PVSPlayerExample.SliderPanel();
             this.rightFramePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.shuttlePanel = new System.Windows.Forms.Panel();
             this.shuttleLabel = new PVSPlayerExample.HeadLabel();
             this.audioPanel = new System.Windows.Forms.Panel();
@@ -299,8 +260,6 @@ namespace PVSPlayerExample
             this.video3DTopMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator43 = new System.Windows.Forms.ToolStripSeparator();
             this.video3DStereoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.leftFramePanel.SuspendLayout();
             this.repeatPanel.SuspendLayout();
             this.repeatMenu.SuspendLayout();
@@ -396,7 +355,6 @@ namespace PVSPlayerExample
             this.toolStripSeparator19,
             this.repeatOffMenuItem});
             this.repeatMenu.Name = "repeatMenu";
-            this.repeatMenu.OwnerItem = this.repeatMenuItem;
             this.repeatMenu.Size = new System.Drawing.Size(242, 126);
             this.repeatMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.RepeatMenu_Closed);
             this.repeatMenu.Opening += new System.ComponentModel.CancelEventHandler(this.RepeatMenu_Opening);
@@ -549,164 +507,57 @@ namespace PVSPlayerExample
             // displayOverlayMenu
             // 
             this.displayOverlayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.overlayModeMenuItem,
-            this.overlayHoldMenuItem,
             this.toolStripSeparator5,
-            this.messageMenuItem,
             this.scribbleMenuItem,
             this.toolStripSeparator24,
-            this.tilesMenuItem,
-            this.bouncingMenuItem,
-            this.toolStripSeparator23,
-            this.PiPMenuItem,
             this.subtitlesMenuItem,
             this.toolStripSeparator25,
-            this.zoomSelectMenuItem,
-            this.videoWallMenuItem,
-            this.toolStripSeparator21,
             this.MP3CoverMenuItem,
             this.MP3KaraokeMenuItem,
             this.toolStripSeparator22,
-            this.bigTimeMenuItem,
-            this.statusInfoMenuItem,
-            this.toolStripSeparator6,
             this.overlayOffMenuItem});
             this.displayOverlayMenu.Name = "displayOverlayMenu";
-            this.displayOverlayMenu.OwnerItem = this.displayOverlayMenuItem;
             this.displayOverlayMenu.ShowItemToolTips = false;
-            this.displayOverlayMenu.Size = new System.Drawing.Size(259, 376);
+            this.displayOverlayMenu.Size = new System.Drawing.Size(250, 138);
             this.displayOverlayMenu.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.DisplayOverlayMenu_Closing);
             this.displayOverlayMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DisplayOverlayMenu_Opening);
-            // 
-            // overlayModeMenuItem
-            // 
-            this.overlayModeMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.videoMenuItem,
-            this.displayMenuItem});
-            this.overlayModeMenuItem.Name = "overlayModeMenuItem";
-            this.overlayModeMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.overlayModeMenuItem.Text = "Overlay Mode";
-            // 
-            // videoMenuItem
-            // 
-            this.videoMenuItem.Checked = true;
-            this.videoMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.videoMenuItem.Name = "videoMenuItem";
-            this.videoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
-            this.videoMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.videoMenuItem.Text = "Video";
-            this.videoMenuItem.Click += new System.EventHandler(this.VideoMenuItem_Click);
-            // 
-            // displayMenuItem
-            // 
-            this.displayMenuItem.Name = "displayMenuItem";
-            this.displayMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.displayMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.displayMenuItem.Text = "Display";
-            this.displayMenuItem.Click += new System.EventHandler(this.DisplayMenuItem_Click);
-            // 
-            // overlayHoldMenuItem
-            // 
-            this.overlayHoldMenuItem.Name = "overlayHoldMenuItem";
-            this.overlayHoldMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.H)));
-            this.overlayHoldMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.overlayHoldMenuItem.Text = "Overlay Hold";
-            this.overlayHoldMenuItem.Click += new System.EventHandler(this.OverlayHoldMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(255, 6);
-            // 
-            // messageMenuItem
-            // 
-            this.messageMenuItem.Name = "messageMenuItem";
-            this.messageMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F1)));
-            this.messageMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.messageMenuItem.Text = "Example \"Message\"";
-            this.messageMenuItem.Click += new System.EventHandler(this.MessageMenuItem_Click);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(246, 6);
             // 
             // scribbleMenuItem
             // 
             this.scribbleMenuItem.Name = "scribbleMenuItem";
             this.scribbleMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F2)));
-            this.scribbleMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.scribbleMenuItem.Size = new System.Drawing.Size(249, 22);
             this.scribbleMenuItem.Text = "Example \"Scribble\"";
             this.scribbleMenuItem.Click += new System.EventHandler(this.ScribbleMenuItem_Click);
             // 
             // toolStripSeparator24
             // 
             this.toolStripSeparator24.Name = "toolStripSeparator24";
-            this.toolStripSeparator24.Size = new System.Drawing.Size(255, 6);
-            // 
-            // tilesMenuItem
-            // 
-            this.tilesMenuItem.Name = "tilesMenuItem";
-            this.tilesMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F3)));
-            this.tilesMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.tilesMenuItem.Text = "Example \"Tiles && Puzzle\"";
-            this.tilesMenuItem.Click += new System.EventHandler(this.TilesMenuItem_Click);
-            // 
-            // bouncingMenuItem
-            // 
-            this.bouncingMenuItem.Name = "bouncingMenuItem";
-            this.bouncingMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.bouncingMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.bouncingMenuItem.Text = "Example \"Bounce && Pong\"";
-            this.bouncingMenuItem.Click += new System.EventHandler(this.BouncingMenuItem_Click);
-            // 
-            // toolStripSeparator23
-            // 
-            this.toolStripSeparator23.Name = "toolStripSeparator23";
-            this.toolStripSeparator23.Size = new System.Drawing.Size(255, 6);
-            // 
-            // PiPMenuItem
-            // 
-            this.PiPMenuItem.Name = "PiPMenuItem";
-            this.PiPMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F5)));
-            this.PiPMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.PiPMenuItem.Text = "Example \"PiP\"";
-            this.PiPMenuItem.Click += new System.EventHandler(this.PiPMenuItem_Click);
+            this.toolStripSeparator24.Size = new System.Drawing.Size(246, 6);
             // 
             // subtitlesMenuItem
             // 
             this.subtitlesMenuItem.Name = "subtitlesMenuItem";
             this.subtitlesMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F6)));
-            this.subtitlesMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.subtitlesMenuItem.Size = new System.Drawing.Size(249, 22);
             this.subtitlesMenuItem.Text = "Example \"Subtitles\"";
             this.subtitlesMenuItem.Click += new System.EventHandler(this.SubtitlesMenuItem_Click);
             // 
             // toolStripSeparator25
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
-            this.toolStripSeparator25.Size = new System.Drawing.Size(255, 6);
-            // 
-            // zoomSelectMenuItem
-            // 
-            this.zoomSelectMenuItem.Name = "zoomSelectMenuItem";
-            this.zoomSelectMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F7)));
-            this.zoomSelectMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.zoomSelectMenuItem.Text = "Example \"Zoom && Move\"";
-            this.zoomSelectMenuItem.Click += new System.EventHandler(this.ZoomSelectMenuItem_Click);
-            // 
-            // videoWallMenuItem
-            // 
-            this.videoWallMenuItem.Name = "videoWallMenuItem";
-            this.videoWallMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F8)));
-            this.videoWallMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.videoWallMenuItem.Text = "Example \"Video Wall\"";
-            this.videoWallMenuItem.Click += new System.EventHandler(this.VideoWallMenuItem_Click);
-            // 
-            // toolStripSeparator21
-            // 
-            this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(255, 6);
+            this.toolStripSeparator25.Size = new System.Drawing.Size(246, 6);
             // 
             // MP3CoverMenuItem
             // 
             this.MP3CoverMenuItem.Name = "MP3CoverMenuItem";
             this.MP3CoverMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F9)));
-            this.MP3CoverMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.MP3CoverMenuItem.Size = new System.Drawing.Size(249, 22);
             this.MP3CoverMenuItem.Text = "Example \"MP3 Cover\"";
             this.MP3CoverMenuItem.Click += new System.EventHandler(this.MP3CoverMenuItem_Click);
             // 
@@ -714,35 +565,14 @@ namespace PVSPlayerExample
             // 
             this.MP3KaraokeMenuItem.Name = "MP3KaraokeMenuItem";
             this.MP3KaraokeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F10)));
-            this.MP3KaraokeMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.MP3KaraokeMenuItem.Size = new System.Drawing.Size(249, 22);
             this.MP3KaraokeMenuItem.Text = "Example \"MP3 Karaoke\"";
             this.MP3KaraokeMenuItem.Click += new System.EventHandler(this.MP3KaraokeMenuItem_Click);
             // 
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(255, 6);
-            // 
-            // bigTimeMenuItem
-            // 
-            this.bigTimeMenuItem.Name = "bigTimeMenuItem";
-            this.bigTimeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F11)));
-            this.bigTimeMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.bigTimeMenuItem.Text = "Example \"Big Time && VU\"";
-            this.bigTimeMenuItem.Click += new System.EventHandler(this.BigTimeMenuItem_Click);
-            // 
-            // statusInfoMenuItem
-            // 
-            this.statusInfoMenuItem.Name = "statusInfoMenuItem";
-            this.statusInfoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F12)));
-            this.statusInfoMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.statusInfoMenuItem.Text = "Example \"Status Info\"";
-            this.statusInfoMenuItem.Click += new System.EventHandler(this.StatusInfoMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(255, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(246, 6);
             // 
             // overlayOffMenuItem
             // 
@@ -750,7 +580,7 @@ namespace PVSPlayerExample
             this.overlayOffMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.overlayOffMenuItem.Name = "overlayOffMenuItem";
             this.overlayOffMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D0)));
-            this.overlayOffMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.overlayOffMenuItem.Size = new System.Drawing.Size(249, 22);
             this.overlayOffMenuItem.Text = "Overlay Off";
             this.overlayOffMenuItem.Click += new System.EventHandler(this.OverlayOffMenuItem_Click);
             // 
@@ -791,16 +621,10 @@ namespace PVSPlayerExample
             // 
             this.fullScreenModeMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fullScreenFormMenuItem,
-            this.fullScreenFormAllMenuItem,
-            this.fullScreenParentMenuItem,
-            this.fullScreenParentAllMenuItem,
-            this.fullScreenDisplayMenuItem,
-            this.fullScreenDisplayAllMenuItem,
             this.toolStripSeparator3,
             this.fullScreenOffMenuItem});
             this.fullScreenModeMenu.Name = "fullScreenModeMenu";
-            this.fullScreenModeMenu.OwnerItem = this.fullScreenModeMenuItem;
-            this.fullScreenModeMenu.Size = new System.Drawing.Size(233, 164);
+            this.fullScreenModeMenu.Size = new System.Drawing.Size(182, 54);
             this.fullScreenModeMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.FullScreenModeMenu_Closed);
             this.fullScreenModeMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FullScreenModeMenu_Opening);
             this.fullScreenModeMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.FullScreenModeMenu_ItemClicked);
@@ -809,45 +633,13 @@ namespace PVSPlayerExample
             // 
             this.fullScreenFormMenuItem.Name = "fullScreenFormMenuItem";
             this.fullScreenFormMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.fullScreenFormMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.fullScreenFormMenuItem.Size = new System.Drawing.Size(181, 22);
             this.fullScreenFormMenuItem.Text = "Full Screen Form";
-            // 
-            // fullScreenFormAllMenuItem
-            // 
-            this.fullScreenFormAllMenuItem.Name = "fullScreenFormAllMenuItem";
-            this.fullScreenFormAllMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.fullScreenFormAllMenuItem.Text = "Full Screen Form All Screens";
-            // 
-            // fullScreenParentMenuItem
-            // 
-            this.fullScreenParentMenuItem.Name = "fullScreenParentMenuItem";
-            this.fullScreenParentMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.fullScreenParentMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.fullScreenParentMenuItem.Text = "Full Screen Parent";
-            // 
-            // fullScreenParentAllMenuItem
-            // 
-            this.fullScreenParentAllMenuItem.Name = "fullScreenParentAllMenuItem";
-            this.fullScreenParentAllMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.fullScreenParentAllMenuItem.Text = "Full Screen Parent All Screens";
-            // 
-            // fullScreenDisplayMenuItem
-            // 
-            this.fullScreenDisplayMenuItem.Name = "fullScreenDisplayMenuItem";
-            this.fullScreenDisplayMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.fullScreenDisplayMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.fullScreenDisplayMenuItem.Text = "Full Screen Display";
-            // 
-            // fullScreenDisplayAllMenuItem
-            // 
-            this.fullScreenDisplayAllMenuItem.Name = "fullScreenDisplayAllMenuItem";
-            this.fullScreenDisplayAllMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.fullScreenDisplayAllMenuItem.Text = "Full Screen Display All Screens";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(178, 6);
             // 
             // fullScreenOffMenuItem
             // 
@@ -855,7 +647,7 @@ namespace PVSPlayerExample
             this.fullScreenOffMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fullScreenOffMenuItem.Name = "fullScreenOffMenuItem";
             this.fullScreenOffMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
-            this.fullScreenOffMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.fullScreenOffMenuItem.Size = new System.Drawing.Size(181, 22);
             this.fullScreenOffMenuItem.Text = "Full Screen Off";
             // 
             // fullScreenModeMenuItem
@@ -1012,7 +804,6 @@ namespace PVSPlayerExample
             this.addMediaURLMenuItem,
             this.menuSeparator1});
             this.playMenu.Name = "playMenu";
-            this.playMenu.OwnerItem = this.playDisplayMenuItem;
             this.playMenu.ShowItemToolTips = false;
             this.playMenu.Size = new System.Drawing.Size(213, 104);
             this.playMenu.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.PlayMenu_Closing);
@@ -1142,6 +933,16 @@ namespace PVSPlayerExample
             this.titlePanel.Size = new System.Drawing.Size(141, 51);
             this.titlePanel.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 43);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Reproductor de audio";
+            // 
             // speedPanel
             // 
             this.speedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1266,19 +1067,11 @@ namespace PVSPlayerExample
             // displayModeMenu
             // 
             this.displayModeMenu.Name = "displayModeMenu";
-            this.displayModeMenu.OwnerItem = this.displayModeMenuItem;
             this.displayModeMenu.ShowItemToolTips = false;
             this.displayModeMenu.Size = new System.Drawing.Size(61, 4);
             this.displayModeMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.DisplayModeMenu_Closed);
             this.displayModeMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DisplayModeMenu_Opening);
             this.displayModeMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.DisplayModeMenu_ItemClicked);
-            // 
-            // displayModeMenuItem
-            // 
-            this.displayModeMenuItem.DropDown = this.displayModeMenu;
-            this.displayModeMenuItem.Name = "displayModeMenuItem";
-            this.displayModeMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.displayModeMenuItem.Text = "Display Mode";
             // 
             // toolTip1
             // 
@@ -1316,20 +1109,16 @@ namespace PVSPlayerExample
             this.nextMenuItem,
             this.repeatMenuItem,
             this.toolStripSeparator9,
-            this.displayModeMenuItem,
             this.displayShapeMenuItem,
             this.fullScreenModeMenuItem,
             this.toolStripSeparator17,
-            this.displayClonesMenuItem,
             this.displayOverlayMenuItem,
             this.overlayMenuMenuItem,
             this.toolStripSeparator41,
-            this.audioDevicesMenuItem,
             this.audioTracksMenuItem,
             this.toolStripSeparator15,
             this.videoTracksMenuItem,
             this.videoColorMenuItem,
-            this.videoOverlayMenuItem,
             this.tracksMenuSeparator,
             this.screencopyMenuItem,
             this.preferencesMenuItem,
@@ -1337,7 +1126,7 @@ namespace PVSPlayerExample
             this.quitMenuItem});
             this.displayMenu.Name = "displayMenu";
             this.displayMenu.ShowImageMargin = false;
-            this.displayMenu.Size = new System.Drawing.Size(156, 486);
+            this.displayMenu.Size = new System.Drawing.Size(156, 398);
             this.displayMenu.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.DisplayMenu_Closing);
             this.displayMenu.Opening += new System.ComponentModel.CancelEventHandler(this.DisplayMenu_Opening);
             // 
@@ -1421,175 +1210,175 @@ namespace PVSPlayerExample
             // arrowDownShapeMenuItem
             // 
             this.arrowDownShapeMenuItem.Name = "arrowDownShapeMenuItem";
-            this.arrowDownShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.arrowDownShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arrowDownShapeMenuItem.Text = "Arrow Down";
             this.arrowDownShapeMenuItem.Click += new System.EventHandler(this.ArrowDownShapeMenuItem_Click);
             // 
             // arrowLeftShapeMenuItem
             // 
             this.arrowLeftShapeMenuItem.Name = "arrowLeftShapeMenuItem";
-            this.arrowLeftShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.arrowLeftShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arrowLeftShapeMenuItem.Text = "Arrow Left";
             this.arrowLeftShapeMenuItem.Click += new System.EventHandler(this.ArrowLeftShapeMenuItem_Click);
             // 
             // arrowRightShapeMenuItem
             // 
             this.arrowRightShapeMenuItem.Name = "arrowRightShapeMenuItem";
-            this.arrowRightShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.arrowRightShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arrowRightShapeMenuItem.Text = "Arrow Right";
             this.arrowRightShapeMenuItem.Click += new System.EventHandler(this.ArrowRightShapeMenuItem_Click);
             // 
             // arrowUpShapeMenuItem
             // 
             this.arrowUpShapeMenuItem.Name = "arrowUpShapeMenuItem";
-            this.arrowUpShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.arrowUpShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arrowUpShapeMenuItem.Text = "Arrow Up";
             this.arrowUpShapeMenuItem.Click += new System.EventHandler(this.ArrowUpShapeMenuItem_Click);
             // 
             // barsShapeMenuItem
             // 
             this.barsShapeMenuItem.Name = "barsShapeMenuItem";
-            this.barsShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.barsShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.barsShapeMenuItem.Text = "Bars";
             this.barsShapeMenuItem.Click += new System.EventHandler(this.BarsShapeMenuItem_Click);
             // 
             // beamsShapeMenuItem
             // 
             this.beamsShapeMenuItem.Name = "beamsShapeMenuItem";
-            this.beamsShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.beamsShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.beamsShapeMenuItem.Text = "Beams";
             this.beamsShapeMenuItem.Click += new System.EventHandler(this.BeamsShapeMenuItem_Click);
             // 
             // circleShapeMenuItem
             // 
             this.circleShapeMenuItem.Name = "circleShapeMenuItem";
-            this.circleShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.circleShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.circleShapeMenuItem.Text = "Circle";
             this.circleShapeMenuItem.Click += new System.EventHandler(this.CircleShapeMenuItem_Click);
             // 
             // crossShapeMenuItem
             // 
             this.crossShapeMenuItem.Name = "crossShapeMenuItem";
-            this.crossShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.crossShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crossShapeMenuItem.Text = "Cross";
             this.crossShapeMenuItem.Click += new System.EventHandler(this.CrossShapeMenuItem_Click);
             // 
             // customShapeMenuItem
             // 
             this.customShapeMenuItem.Name = "customShapeMenuItem";
-            this.customShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.customShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customShapeMenuItem.Text = "Custom";
             this.customShapeMenuItem.Click += new System.EventHandler(this.CustomShapeMenuItem_Click);
             // 
             // diamondShapeMenuItem
             // 
             this.diamondShapeMenuItem.Name = "diamondShapeMenuItem";
-            this.diamondShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.diamondShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.diamondShapeMenuItem.Text = "Diamond";
             this.diamondShapeMenuItem.Click += new System.EventHandler(this.DiamondShapeMenuItem_Click);
             // 
             // frameShapeMenuItem
             // 
             this.frameShapeMenuItem.Name = "frameShapeMenuItem";
-            this.frameShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.frameShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.frameShapeMenuItem.Text = "Frame";
             this.frameShapeMenuItem.Click += new System.EventHandler(this.FrameShapeMenuItem_Click);
             // 
             // heartShapeMenuItem
             // 
             this.heartShapeMenuItem.Name = "heartShapeMenuItem";
-            this.heartShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.heartShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.heartShapeMenuItem.Text = "Heart";
             this.heartShapeMenuItem.Click += new System.EventHandler(this.HeartShapeMenuItem_Click);
             // 
             // hexagonShapeMenuItem
             // 
             this.hexagonShapeMenuItem.Name = "hexagonShapeMenuItem";
-            this.hexagonShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.hexagonShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hexagonShapeMenuItem.Text = "Hexagon";
             this.hexagonShapeMenuItem.Click += new System.EventHandler(this.HexagonShapeMenuItem_Click);
             // 
             // ovalShapeMenuItem
             // 
             this.ovalShapeMenuItem.Name = "ovalShapeMenuItem";
-            this.ovalShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.ovalShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ovalShapeMenuItem.Text = "Oval";
             this.ovalShapeMenuItem.Click += new System.EventHandler(this.OvalShapeMenuItem_Click);
             // 
             // rectangleShapeMenuItem
             // 
             this.rectangleShapeMenuItem.Name = "rectangleShapeMenuItem";
-            this.rectangleShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.rectangleShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rectangleShapeMenuItem.Text = "Rectangle";
             this.rectangleShapeMenuItem.Click += new System.EventHandler(this.RectangleShapeMenuItem_Click);
             // 
             // ringShapeMenuItem
             // 
             this.ringShapeMenuItem.Name = "ringShapeMenuItem";
-            this.ringShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.ringShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ringShapeMenuItem.Text = "Ring";
             this.ringShapeMenuItem.Click += new System.EventHandler(this.RingShapeMenuItem_Click);
             // 
             // roundedShapeMenuItem
             // 
             this.roundedShapeMenuItem.Name = "roundedShapeMenuItem";
-            this.roundedShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.roundedShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.roundedShapeMenuItem.Text = "Rounded";
             this.roundedShapeMenuItem.Click += new System.EventHandler(this.RoundedShapeMenuItem_Click);
             // 
             // squareShapeMenuItem
             // 
             this.squareShapeMenuItem.Name = "squareShapeMenuItem";
-            this.squareShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.squareShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.squareShapeMenuItem.Text = "Square";
             this.squareShapeMenuItem.Click += new System.EventHandler(this.SquareShapeMenuItem_Click);
             // 
             // starShapeMenuItem
             // 
             this.starShapeMenuItem.Name = "starShapeMenuItem";
-            this.starShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.starShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.starShapeMenuItem.Text = "Star";
             this.starShapeMenuItem.Click += new System.EventHandler(this.StarShapeMenuItem_Click);
             // 
             // tilesShapeMenuItem
             // 
             this.tilesShapeMenuItem.Name = "tilesShapeMenuItem";
-            this.tilesShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.tilesShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tilesShapeMenuItem.Text = "Tiles";
             this.tilesShapeMenuItem.Click += new System.EventHandler(this.TilesShapeMenuItem_Click);
             // 
             // triangleDownMenuItem
             // 
             this.triangleDownMenuItem.Name = "triangleDownMenuItem";
-            this.triangleDownMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.triangleDownMenuItem.Size = new System.Drawing.Size(180, 22);
             this.triangleDownMenuItem.Text = "Triangle Down";
             this.triangleDownMenuItem.Click += new System.EventHandler(this.TriangleDownMenuItem_Click);
             // 
             // triangleLeftMenuItem
             // 
             this.triangleLeftMenuItem.Name = "triangleLeftMenuItem";
-            this.triangleLeftMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.triangleLeftMenuItem.Size = new System.Drawing.Size(180, 22);
             this.triangleLeftMenuItem.Text = "Triangle Left";
             this.triangleLeftMenuItem.Click += new System.EventHandler(this.TriangleLeftMenuItem_Click);
             // 
             // triangleRightMenuItem
             // 
             this.triangleRightMenuItem.Name = "triangleRightMenuItem";
-            this.triangleRightMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.triangleRightMenuItem.Size = new System.Drawing.Size(180, 22);
             this.triangleRightMenuItem.Text = "Triangle Right";
             this.triangleRightMenuItem.Click += new System.EventHandler(this.TriangleRightMenuItem_Click);
             // 
             // triangleUpMenuItem
             // 
             this.triangleUpMenuItem.Name = "triangleUpMenuItem";
-            this.triangleUpMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.triangleUpMenuItem.Size = new System.Drawing.Size(180, 22);
             this.triangleUpMenuItem.Text = "Triangle Up";
             this.triangleUpMenuItem.Click += new System.EventHandler(this.TriangleUpMenuItem_Click);
             // 
             // toolStripSeparator34
             // 
             this.toolStripSeparator34.Name = "toolStripSeparator34";
-            this.toolStripSeparator34.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator34.Size = new System.Drawing.Size(177, 6);
             // 
             // useVideoBoundsMenuItem
             // 
@@ -1599,7 +1388,7 @@ namespace PVSPlayerExample
             this.shapeVideoMenuItem,
             this.shapeDisplayMenuItem});
             this.useVideoBoundsMenuItem.Name = "useVideoBoundsMenuItem";
-            this.useVideoBoundsMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.useVideoBoundsMenuItem.Size = new System.Drawing.Size(180, 22);
             this.useVideoBoundsMenuItem.Text = "Video Shape";
             // 
             // shapeVideoMenuItem
@@ -1624,7 +1413,7 @@ namespace PVSPlayerExample
             this.shapeOverlayOnMenuItem,
             this.shapeOverlayOffMenuItem});
             this.setOverlayShapeMenuItem.Name = "setOverlayShapeMenuItem";
-            this.setOverlayShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.setOverlayShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setOverlayShapeMenuItem.Text = "Overlay Shape";
             // 
             // shapeOverlayOnMenuItem
@@ -1646,14 +1435,14 @@ namespace PVSPlayerExample
             // toolStripSeparator38
             // 
             this.toolStripSeparator38.Name = "toolStripSeparator38";
-            this.toolStripSeparator38.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator38.Size = new System.Drawing.Size(177, 6);
             // 
             // normalShapeMenuItem
             // 
             this.normalShapeMenuItem.Checked = true;
             this.normalShapeMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.normalShapeMenuItem.Name = "normalShapeMenuItem";
-            this.normalShapeMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.normalShapeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.normalShapeMenuItem.Text = "Normal Shape";
             this.normalShapeMenuItem.Click += new System.EventHandler(this.NormalShapeMenuItem_Click);
             // 
@@ -1661,149 +1450,6 @@ namespace PVSPlayerExample
             // 
             this.toolStripSeparator17.Name = "toolStripSeparator17";
             this.toolStripSeparator17.Size = new System.Drawing.Size(152, 6);
-            // 
-            // displayClonesMenuItem
-            // 
-            this.displayClonesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCloneMenuItem,
-            this.toolStripSeparator36,
-            this.showOverlayMenuItem,
-            this.refreshRateMenuItem,
-            this.toolStripSeparator20,
-            this.removeAllClonesMenuItem});
-            this.displayClonesMenuItem.Name = "displayClonesMenuItem";
-            this.displayClonesMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.displayClonesMenuItem.Text = "Display Clones";
-            // 
-            // addCloneMenuItem
-            // 
-            this.addCloneMenuItem.Name = "addCloneMenuItem";
-            this.addCloneMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.addCloneMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.addCloneMenuItem.Text = "Add Display Clone";
-            this.addCloneMenuItem.Click += new System.EventHandler(this.AddCloneMenuItem_Click);
-            // 
-            // toolStripSeparator36
-            // 
-            this.toolStripSeparator36.Name = "toolStripSeparator36";
-            this.toolStripSeparator36.Size = new System.Drawing.Size(210, 6);
-            // 
-            // showOverlayMenuItem
-            // 
-            this.showOverlayMenuItem.Name = "showOverlayMenuItem";
-            this.showOverlayMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.showOverlayMenuItem.Text = "Hide Clone Overlays";
-            this.showOverlayMenuItem.Click += new System.EventHandler(this.ShowOverlayMenuItem_Click);
-            // 
-            // refreshRateMenuItem
-            // 
-            this.refreshRateMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fps01MenuItem,
-            this.fps02MenuItem,
-            this.fps05MenuItem,
-            this.fps10MenuItem,
-            this.fps15MenuItem,
-            this.fps20MenuItem,
-            this.fps25MenuItem,
-            this.fps30MenuItem,
-            this.fps40MenuItem,
-            this.fps50MenuItem,
-            this.fps60MenuItem});
-            this.refreshRateMenuItem.Name = "refreshRateMenuItem";
-            this.refreshRateMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.refreshRateMenuItem.Text = "Clones Frame Rate";
-            // 
-            // fps01MenuItem
-            // 
-            this.fps01MenuItem.Name = "fps01MenuItem";
-            this.fps01MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps01MenuItem.Text = "01 fps";
-            this.fps01MenuItem.Click += new System.EventHandler(this.Fps01MenuItem_Click);
-            // 
-            // fps02MenuItem
-            // 
-            this.fps02MenuItem.Name = "fps02MenuItem";
-            this.fps02MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps02MenuItem.Text = "02 fps";
-            this.fps02MenuItem.Click += new System.EventHandler(this.Fps02MenuItem_Click);
-            // 
-            // fps05MenuItem
-            // 
-            this.fps05MenuItem.Name = "fps05MenuItem";
-            this.fps05MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps05MenuItem.Text = "05 fps";
-            this.fps05MenuItem.Click += new System.EventHandler(this.Fps05MenuItem_Click);
-            // 
-            // fps10MenuItem
-            // 
-            this.fps10MenuItem.Name = "fps10MenuItem";
-            this.fps10MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps10MenuItem.Text = "10 fps";
-            this.fps10MenuItem.Click += new System.EventHandler(this.Fps10MenuItem_Click);
-            // 
-            // fps15MenuItem
-            // 
-            this.fps15MenuItem.Name = "fps15MenuItem";
-            this.fps15MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps15MenuItem.Text = "15 fps";
-            this.fps15MenuItem.Click += new System.EventHandler(this.Fps15MenuItem_Click);
-            // 
-            // fps20MenuItem
-            // 
-            this.fps20MenuItem.Name = "fps20MenuItem";
-            this.fps20MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps20MenuItem.Text = "20 fps";
-            this.fps20MenuItem.Click += new System.EventHandler(this.Fps20MenuItem_Click);
-            // 
-            // fps25MenuItem
-            // 
-            this.fps25MenuItem.Name = "fps25MenuItem";
-            this.fps25MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps25MenuItem.Text = "25 fps";
-            this.fps25MenuItem.Click += new System.EventHandler(this.Fps25MenuItem_Click);
-            // 
-            // fps30MenuItem
-            // 
-            this.fps30MenuItem.Checked = true;
-            this.fps30MenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.fps30MenuItem.Name = "fps30MenuItem";
-            this.fps30MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps30MenuItem.Text = "30 fps";
-            this.fps30MenuItem.Click += new System.EventHandler(this.Fps30MenuItem_Click);
-            // 
-            // fps40MenuItem
-            // 
-            this.fps40MenuItem.Name = "fps40MenuItem";
-            this.fps40MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps40MenuItem.Text = "40 fps";
-            this.fps40MenuItem.Click += new System.EventHandler(this.Fps40MenuItem_Click);
-            // 
-            // fps50MenuItem
-            // 
-            this.fps50MenuItem.Name = "fps50MenuItem";
-            this.fps50MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps50MenuItem.Text = "50 fps";
-            this.fps50MenuItem.Click += new System.EventHandler(this.Fps50MenuItem_Click);
-            // 
-            // fps60MenuItem
-            // 
-            this.fps60MenuItem.Name = "fps60MenuItem";
-            this.fps60MenuItem.Size = new System.Drawing.Size(105, 22);
-            this.fps60MenuItem.Text = "60 fps";
-            this.fps60MenuItem.Click += new System.EventHandler(this.Fps60MenuItem_Click);
-            // 
-            // toolStripSeparator20
-            // 
-            this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(210, 6);
-            // 
-            // removeAllClonesMenuItem
-            // 
-            this.removeAllClonesMenuItem.Enabled = false;
-            this.removeAllClonesMenuItem.Name = "removeAllClonesMenuItem";
-            this.removeAllClonesMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.removeAllClonesMenuItem.Text = "Remove All Clones";
-            this.removeAllClonesMenuItem.Click += new System.EventHandler(this.RemoveAllClonesMenuItem_Click);
             // 
             // overlayMenuMenuItem
             // 
@@ -1817,13 +1463,6 @@ namespace PVSPlayerExample
             this.toolStripSeparator41.Name = "toolStripSeparator41";
             this.toolStripSeparator41.Size = new System.Drawing.Size(152, 6);
             // 
-            // audioDevicesMenuItem
-            // 
-            this.audioDevicesMenuItem.DropDown = this.audioDeviceMenu;
-            this.audioDevicesMenuItem.Name = "audioDevicesMenuItem";
-            this.audioDevicesMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.audioDevicesMenuItem.Text = "Audio Device";
-            // 
             // audioDeviceMenu
             // 
             this.audioDeviceMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1836,7 +1475,6 @@ namespace PVSPlayerExample
             this.toolStripSeparator31,
             this.systemDefaultToolStripMenuItem});
             this.audioDeviceMenu.Name = "audioDeviceMenu";
-            this.audioDeviceMenu.OwnerItem = this.audioDevicesMenuItem;
             this.audioDeviceMenu.Size = new System.Drawing.Size(168, 148);
             this.audioDeviceMenu.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.AudioDeviceMenu_Closing);
             this.audioDeviceMenu.Opening += new System.ComponentModel.CancelEventHandler(this.AudioDeviceMenu_Opening);
@@ -1903,7 +1541,6 @@ namespace PVSPlayerExample
             this.audioTracks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.audioTracks.Name = "audioTracks";
-            this.audioTracks.OwnerItem = this.audioTracksMenuItem;
             this.audioTracks.Size = new System.Drawing.Size(126, 26);
             // 
             // toolStripMenuItem1
@@ -1931,7 +1568,6 @@ namespace PVSPlayerExample
             this.videoTracks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.videoTracks.Name = "videoTracks";
-            this.videoTracks.OwnerItem = this.videoTracksMenuItem;
             this.videoTracks.Size = new System.Drawing.Size(126, 26);
             // 
             // toolStripMenuItem2
@@ -1947,13 +1583,6 @@ namespace PVSPlayerExample
             this.videoColorMenuItem.Size = new System.Drawing.Size(155, 22);
             this.videoColorMenuItem.Text = "Video Color";
             this.videoColorMenuItem.Click += new System.EventHandler(this.VideoColorMenuItem_Click);
-            // 
-            // videoOverlayMenuItem
-            // 
-            this.videoOverlayMenuItem.Name = "videoOverlayMenuItem";
-            this.videoOverlayMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.videoOverlayMenuItem.Text = "Video Overlay";
-            this.videoOverlayMenuItem.Click += new System.EventHandler(this.VideoOverlayMenuItem_Click);
             // 
             // tracksMenuSeparator
             // 
@@ -1978,7 +1607,6 @@ namespace PVSPlayerExample
             this.toolStripSeparator12,
             this.clearCopyMenuItem});
             this.screenCopyMenu.Name = "screenCopyMenu";
-            this.screenCopyMenu.OwnerItem = this.screencopyMenuItem;
             this.screenCopyMenu.ShowImageMargin = false;
             this.screenCopyMenu.Size = new System.Drawing.Size(142, 126);
             // 
@@ -2007,7 +1635,6 @@ namespace PVSPlayerExample
             this.formCopyModeMenuItem,
             this.screenCopyModeMenuItem});
             this.copyModeMenu.Name = "copyModeMenu";
-            this.copyModeMenu.OwnerItem = this.copyModeMenuItem;
             this.copyModeMenu.Size = new System.Drawing.Size(113, 114);
             this.copyModeMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CopyModeMenu_ItemClicked);
             // 
@@ -2699,6 +2326,14 @@ namespace PVSPlayerExample
             this.rightFramePanel.Size = new System.Drawing.Size(155, 505);
             this.rightFramePanel.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.Image = global::PVSPlayerExample.Properties.Resources.UDBLOGO;
+            this.label1.Location = new System.Drawing.Point(11, 399);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 81);
+            this.label1.TabIndex = 0;
+            // 
             // shuttlePanel
             // 
             this.shuttlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -2871,24 +2506,6 @@ namespace PVSPlayerExample
             this.video3DStereoMenuItem.Text = "Normal View";
             this.video3DStereoMenuItem.Click += new System.EventHandler(this.Video3DStereoMenuItem_Click);
             // 
-            // label1
-            // 
-            this.label1.Image = global::PVSPlayerExample.Properties.Resources.UDBLOGO;
-            this.label1.Location = new System.Drawing.Point(11, 399);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 81);
-            this.label1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(3, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 43);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Reproductor de audio";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2975,23 +2592,12 @@ namespace PVSPlayerExample
         private ToolStripSeparator menuSeparator1;
         private ContextMenuStrip fullScreenModeMenu;
         private ToolStripMenuItem fullScreenFormMenuItem;
-        private ToolStripMenuItem fullScreenParentMenuItem;
-        private ToolStripMenuItem fullScreenDisplayMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem fullScreenOffMenuItem;
         private ContextMenuStrip displayOverlayMenu;
-        private ToolStripMenuItem overlayModeMenuItem;
-        private ToolStripMenuItem videoMenuItem;
-        private ToolStripMenuItem displayMenuItem;
-        private ToolStripMenuItem overlayHoldMenuItem;
         private ToolStripSeparator toolStripSeparator5;
-        private ToolStripMenuItem messageMenuItem;
         private ToolStripMenuItem scribbleMenuItem;
-        private ToolStripMenuItem bouncingMenuItem;
-        private ToolStripMenuItem PiPMenuItem;
-        private ToolStripMenuItem tilesMenuItem;
         private ToolStripMenuItem MP3CoverMenuItem;
-        private ToolStripSeparator toolStripSeparator6;
         private ToolStripMenuItem overlayOffMenuItem;
         private ContextMenuStrip playSubMenu;
         private ToolStripMenuItem playMenuItem;
@@ -3003,7 +2609,6 @@ namespace PVSPlayerExample
         private ToolStripMenuItem pauseMenuItem;
         private ToolStripMenuItem stopMenuItem;
         private ToolStripSeparator toolStripSeparator8;
-        private ToolStripMenuItem displayModeMenuItem;
         private ToolStripMenuItem fullScreenModeMenuItem;
         private ToolStripMenuItem displayOverlayMenuItem;
         private ToolStripSeparator toolStripSeparator9;
@@ -3049,11 +2654,8 @@ namespace PVSPlayerExample
         private ToolStripMenuItem addMediaURLMenuItem;
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripMenuItem quitMenuItem;
-        private ToolStripMenuItem zoomSelectMenuItem;
-        private ToolStripMenuItem statusInfoMenuItem;
         private ToolStripMenuItem nextMenuItem;
         private ToolStripMenuItem previousMenuItem;
-        private ToolStripMenuItem bigTimeMenuItem;
         private SliderPanel positionSliderPanel;
         private CustomSlider2 speedSlider;
         private CustomSlider2 shuttleSlider;
@@ -3075,14 +2677,11 @@ namespace PVSPlayerExample
         private CustomButton overlayMenuButton;
         private ToolStripSeparator tracksMenuSeparator;
         private ToolStripMenuItem repeatMenuItem;
-        private ToolStripSeparator toolStripSeparator21;
         private ToolStripSeparator toolStripSeparator22;
         private ToolStripSeparator toolStripSeparator24;
-        private ToolStripSeparator toolStripSeparator23;
         private ToolStripSeparator toolStripSeparator25;
         private ToolStripMenuItem MP3KaraokeMenuItem;
         private MaskedTextBox speedTextBox;
-        private ToolStripMenuItem videoWallMenuItem;
         private ToolStripMenuItem propertiesMenuItem;
         private ToolStripSeparator toolStripSeparator28;
         private ToolStripMenuItem openLocationMenuItem;
@@ -3104,24 +2703,6 @@ namespace PVSPlayerExample
         private ToolStripMenuItem toolStripMenuItem2;
         private Label audioTracksLabel;
         private Label videoTracksLabel;
-        private ToolStripMenuItem displayClonesMenuItem;
-        private ToolStripMenuItem addCloneMenuItem;
-        private ToolStripSeparator toolStripSeparator20;
-        private ToolStripMenuItem removeAllClonesMenuItem;
-        private ToolStripSeparator toolStripSeparator36;
-        private ToolStripMenuItem showOverlayMenuItem;
-        private ToolStripMenuItem refreshRateMenuItem;
-        private ToolStripMenuItem fps01MenuItem;
-        private ToolStripMenuItem fps02MenuItem;
-        private ToolStripMenuItem fps05MenuItem;
-        private ToolStripMenuItem fps10MenuItem;
-        private ToolStripMenuItem fps15MenuItem;
-        private ToolStripMenuItem fps20MenuItem;
-        private ToolStripMenuItem fps25MenuItem;
-        private ToolStripMenuItem fps30MenuItem;
-        private ToolStripMenuItem fps40MenuItem;
-        private ToolStripMenuItem fps50MenuItem;
-        private ToolStripMenuItem fps60MenuItem;
         private ToolStripMenuItem sliderMousePreviewMenuItem;
         private ToolStripMenuItem slidersShowInfoLabelsMenuItem;
         private ToolStripMenuItem mark1_MenuItem;
@@ -3194,9 +2775,6 @@ namespace PVSPlayerExample
         private ToolStripMenuItem channelVolumesMenuItem;
         private ToolStripMenuItem webcamsMenuItem;
         private ToolStripMenuItem noWebcamsToolStripMenuItem;
-        private ToolStripMenuItem fullScreenFormAllMenuItem;
-        private ToolStripMenuItem fullScreenParentAllMenuItem;
-        private ToolStripMenuItem fullScreenDisplayAllMenuItem;
         private ToolStripMenuItem circleShapeMenuItem;
         private ToolStripMenuItem squareShapeMenuItem;
         private ToolStripSeparator toolStripSeparator42;
@@ -3215,11 +2793,9 @@ namespace PVSPlayerExample
         private ToolStripMenuItem video3DLeftMenuItem;
         private ToolStripMenuItem video3DTopMenuItem;
 		private ToolStripMenuItem deviceVolumeMenuItem;
-		private ToolStripMenuItem audioDevicesMenuItem;
 		private ContextMenuStrip displayModeMenu;
 		private ToolStripSeparator toolStripSeparator10;
 		private ToolStripMenuItem monoAudioMenuItem;
-		private ToolStripMenuItem videoOverlayMenuItem;
 		private ToolStripMenuItem chaptersFileMenuItem;
 		private ToolStripMenuItem noChaptersToolStripMenuItem2;
 		private ToolStripMenuItem repeatChapterMenuItem;

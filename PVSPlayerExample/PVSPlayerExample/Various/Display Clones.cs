@@ -32,7 +32,7 @@ namespace PVSPlayerExample
             _cloneWindows.Add(cloneWindow);
             myPlayer.DisplayClones.Add(cloneWindow);
 
-            removeAllClonesMenuItem.Enabled = true;
+            //removeAllClonesMenuItem.Enabled = true;
             _hasCloneWindows = true;
 
             //cloneWindow.Show(this); // in doubt because of overlay canfocus gets in front of clones
@@ -56,7 +56,7 @@ namespace PVSPlayerExample
 
                 if (_cloneWindows.Count == 0)
                 {
-                    removeAllClonesMenuItem.Enabled = false;
+                    //removeAllClonesMenuItem.Enabled = false;
                     _idNumber = 1;
                     _hasCloneWindows = false;
                 }
